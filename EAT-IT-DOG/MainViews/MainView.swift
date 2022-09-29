@@ -19,6 +19,8 @@ struct MainView: View {
     
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @Namespace private var animation
+    
+    // State Variable
     @State private var selectedView: Int = 2
     @State private var transition: AnyTransition = .slide
     
@@ -51,7 +53,7 @@ struct MainView: View {
                         Button(action: {
                             HapticManager.instance.impact(style: .light)
                             transition = selectedView < idx ? .backslide : .slide
-                            withAnimation(.default) {
+                            withAnimation(.easeInOut) {
                                 selectedView = idx
                             }
                         }) {

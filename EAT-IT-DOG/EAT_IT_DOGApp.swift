@@ -11,7 +11,7 @@ import SwiftUI
 struct EAT_IT_DOGApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            LaunchView()
         }
     }
 }

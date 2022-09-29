@@ -9,7 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     
+    // State Variable
     @State var searchText: String = ""
+    
+    // Static Variable
     let category: [[String]] = [["유제품", "간식", "육류"],
                                 ["채소", "인스턴트", "해산물"],
                                 ["음료", "조미료", "과일"]]
@@ -17,6 +20,7 @@ struct HomeView: View {
     var body: some View {
         VStack(spacing: 40) {
             
+            // Search Bar
             HStack(spacing: 0) {
                 TextField("", text: $searchText)
                     .placeholder("음식 이름을 검색하세요", when: searchText.isEmpty)
@@ -42,6 +46,7 @@ struct HomeView: View {
                 
                 VStack(spacing: 40) {
                     
+                    // Banner
                     VStack(spacing: 0) {
                         Text("강아지가 먹어도 되는\n음식인지 검색해 보세요!")
                             .foregroundColor(.white)
@@ -59,6 +64,7 @@ struct HomeView: View {
                         startPoint: .top, endPoint: .bottom))
                     .roundedCorner(15)
                     
+                    // Category Plate
                     VStack(spacing: 0) {
                         ForEach(category, id: \.self) { i in
                             HStack(spacing: 0) {
