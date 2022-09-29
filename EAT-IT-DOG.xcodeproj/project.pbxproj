@@ -15,6 +15,7 @@
 		935A7E2F28E541C800C19115 /* EAT_IT_DOGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E2E28E541C800C19115 /* EAT_IT_DOGUITests.swift */; };
 		935A7E3128E541C800C19115 /* EAT_IT_DOGUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E3028E541C800C19115 /* EAT_IT_DOGUITestsLaunchTests.swift */; };
 		935A7E3E28E5482B00C19115 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E3D28E5482B00C19115 /* Colors.swift */; };
+		935A7E4128E5596600C19115 /* PublicExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E4028E5596600C19115 /* PublicExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		935A7E2E28E541C800C19115 /* EAT_IT_DOGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAT_IT_DOGUITests.swift; sourceTree = "<group>"; };
 		935A7E3028E541C800C19115 /* EAT_IT_DOGUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAT_IT_DOGUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		935A7E3D28E5482B00C19115 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		935A7E4028E5596600C19115 /* PublicExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				935A7E1328E541C600C19115 /* EAT_IT_DOGApp.swift */,
 				935A7E1528E541C600C19115 /* ContentView.swift */,
+				935A7E4028E5596600C19115 /* PublicExtensions.swift */,
 				935A7E3F28E5482E00C19115 /* Presets */,
 				935A7E1728E541C800C19115 /* Assets.xcassets */,
 				935A7E1928E541C800C19115 /* Preview Content */,
@@ -270,6 +273,7 @@
 			files = (
 				935A7E1628E541C600C19115 /* ContentView.swift in Sources */,
 				935A7E3E28E5482B00C19115 /* Colors.swift in Sources */,
+				935A7E4128E5596600C19115 /* PublicExtensions.swift in Sources */,
 				935A7E1428E541C600C19115 /* EAT_IT_DOGApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
