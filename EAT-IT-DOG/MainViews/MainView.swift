@@ -11,7 +11,7 @@ struct ScaleButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .scaleEffect(configuration.isPressed ? 0.8 : 1)
-            .animation(.easeIn(duration: 0.1), value: configuration.isPressed)
+            .animation(.easeOut(duration: 0.1), value: configuration.isPressed)
     }
 }
 
@@ -23,7 +23,7 @@ struct MainView: View {
     @State private var transition: AnyTransition = .slide
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Group {
                 switch selectedView {
                 case 1: SearchView()
@@ -42,12 +42,13 @@ struct MainView: View {
                         if selectedView == idx {
                             Rectangle()
                                 .fill(Color.accentColor)
-                                .frame(width: 20, height: 5)
+                                .frame(width: 20, height: 4)
                                 .matchedGeometryEffect(id: "UpperBar", in: animation)
                                 .padding(.bottom, 70)
                         }
                         Button(action: {
-                            transition = selectedView < idx ? .slide : .backslide
+                            HapticManager.instance.impact(style: .light)
+                            transition = selectedView < idx ? .backslide : .slide
                             withAnimation(.default) {
                                 selectedView = idx
                             }

@@ -9,10 +9,9 @@ import SwiftUI
 
 struct SearchView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            Text("searchView")
-            Spacer()
+        ZStack {
+            Color.soft.opacity(0.3).ignoresSafeArea()
+            Text("SearchView")
         }
     }
 }

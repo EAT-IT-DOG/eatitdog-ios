@@ -9,10 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            Text("profileView")
-            Spacer()
+        ZStack {
+            Color.soft.opacity(0.3).ignoresSafeArea()
+            Text("ProfileView")
         }
     }
 }

@@ -9,10 +9,9 @@ import SwiftUI
 
 struct OfferView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            Text("offerView")
-            Spacer()
+        ZStack {
+            Color.soft.opacity(0.3).ignoresSafeArea()
+            Text("OfferView")
         }
     }
 }

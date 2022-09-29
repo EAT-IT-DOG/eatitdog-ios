@@ -9,10 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            Text("homeView")
-            Spacer()
+        ZStack {
+            Color.soft.opacity(0.3).ignoresSafeArea()
+            Text("HomeView")
         }
     }
 }

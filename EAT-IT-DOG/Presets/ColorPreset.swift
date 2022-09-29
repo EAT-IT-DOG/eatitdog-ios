@@ -1,5 +1,5 @@
 //
-//  Colors.swift
+//  ColorPreset.swift
 //  EAT-IT-DOG
 //
 //  Created by Mercen on 2022/09/29.
