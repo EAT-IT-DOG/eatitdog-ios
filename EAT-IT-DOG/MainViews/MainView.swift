@@ -24,6 +24,8 @@ struct MainView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            
+            // View
             Group {
                 switch selectedView {
                 case 1: SearchView()
@@ -32,7 +34,7 @@ struct MainView: View {
                 default: ProfileView()
                 }
             }
-                .transition(transition)
+            .transition(transition)
             
             // Tab Bar
             HStack {

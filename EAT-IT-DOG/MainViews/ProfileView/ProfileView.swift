@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        ZStack {
-            Color.soft.opacity(0.3).ignoresSafeArea()
-            Text("ProfileView")
-        }
+        Color.red
     }
 }
 

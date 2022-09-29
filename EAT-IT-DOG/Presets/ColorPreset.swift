@@ -11,4 +11,6 @@ extension Color {
     static let basics = Color("Basics")
     static let general = Color("General")
     static let soft = Color("Soft")
+    static let background = Color("Background")
+    static let yellow = Color("Yellow")
 }
