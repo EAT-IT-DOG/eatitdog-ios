@@ -23,9 +23,37 @@ struct MainView: View {
     // State Variable
     @State private var selectedView: Int = 2
     @State private var transition: AnyTransition = .slide
+    @State var searchText: String = ""
     
     var body: some View {
         VStack(spacing: 0) {
+            
+            // Search Bar
+            if selectedView != 0 {
+                HStack(spacing: 0) {
+                    TextField("", text: $searchText)
+                        .placeholder("음식 이름을 입력하세요", when: searchText.isEmpty)
+                        .foregroundColor(.basics)
+                    Spacer()
+                    Button(action: {
+                        
+                    }) {
+                        Image("MiniSearch")
+                            .renderingMode(.template)
+                            .resizable()
+                            .foregroundColor(.basics)
+                            .frame(width: 28, height: 28)
+                    }
+                }
+                .padding([.leading, .trailing], 24)
+                .frame(width: 303, height: 60)
+                .background(Color.white)
+                .roundedCorner(15)
+                .padding([.top, .bottom], 40)
+                .frame(maxWidth: .infinity)
+                .background(Color.background.ignoresSafeArea())
+                .transition(transition)
+            }
             
             // View
             Group {
@@ -75,6 +103,7 @@ struct MainView: View {
                 }
             }
         }
+        .ignoresSafeArea(.keyboard)
     }
 }
 

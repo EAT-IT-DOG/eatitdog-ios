@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    // State Variable
-    @State var searchText: String = ""
-    
+
     // Static Variable
     let category: [[String]] = [["유제품", "간식", "육류"],
                                 ["채소", "인스턴트", "해산물"],
@@ -19,29 +16,7 @@ struct HomeView: View {
     
     var body: some View {
         VStack(spacing: 40) {
-            
-            // Search Bar
-            HStack(spacing: 0) {
-                TextField("", text: $searchText)
-                    .placeholder("음식 이름을 검색하세요", when: searchText.isEmpty)
-                    .foregroundColor(.basics)
-                Spacer()
-                Button(action: {
-                    
-                }) {
-                    Image("MiniSearch")
-                        .renderingMode(.template)
-                        .resizable()
-                        .foregroundColor(.basics)
-                        .frame(width: 28, height: 28)
-                }
-            }
-            .padding([.leading, .trailing], 24)
-            .frame(width: 303, height: 60)
-            .background(Color.white)
-            .roundedCorner(15)
-            .padding(.top, 40)
-            
+
             ScrollView {
                 
                 VStack(spacing: 40) {

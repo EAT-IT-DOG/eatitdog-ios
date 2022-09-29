@@ -60,6 +60,7 @@
 		935A7E2E28E541C800C19115 /* EAT_IT_DOGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAT_IT_DOGUITests.swift; sourceTree = "<group>"; };
 		935A7E3028E541C800C19115 /* EAT_IT_DOGUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAT_IT_DOGUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		935A7E3D28E5482B00C19115 /* ColorPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPreset.swift; sourceTree = "<group>"; };
+		93619D3E28E6534A00CAE586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +155,7 @@
 		935A7E1228E541C600C19115 /* EAT-IT-DOG */ = {
 			isa = PBXGroup;
 			children = (
+				93619D3E28E6534A00CAE586 /* Info.plist */,
 				935A7E1328E541C600C19115 /* EAT_IT_DOGApp.swift */,
 				9307499A28E5DD13004555A2 /* LaunchView.swift */,
 				935A7E3F28E5482E00C19115 /* Presets */,
@@ -500,11 +502,13 @@
 				DEVELOPMENT_TEAM = 56V747V83R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EAT-IT-DOG/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "먹어보시개";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,11 +537,13 @@
 				DEVELOPMENT_TEAM = 56V747V83R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EAT-IT-DOG/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "먹어보시개";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
