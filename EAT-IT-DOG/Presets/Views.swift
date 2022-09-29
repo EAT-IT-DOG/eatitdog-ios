@@ -1,5 +1,5 @@
 //
-//  PublicExtensions.swift
+//  Views.swift
 //  EAT-IT-DOG
 //
 //  Created by Mercen on 2022/09/29.
@@ -32,4 +32,12 @@ extension View {
         else { self }
     }
     
+}
+
+extension AnyTransition {
+    static var backslide: AnyTransition {
+        AnyTransition.asymmetric(
+            insertion: .move(edge: .trailing),
+            removal: .move(edge: .leading))
+    }
 }
