@@ -58,6 +58,15 @@ extension View {
         placeholder(when: shouldShow, alignment: alignment) { Text(text).foregroundColor(.general) }
     }
     
+    func endTextEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                        to: nil, from: nil, for: nil)
+    }
+    
+    func onShake(perform action: @escaping () -> Void) -> some View {
+        self.modifier(DeviceShakeViewModifier(action: action))
+    }
+    
 }
 
 extension AnyTransition {
@@ -65,5 +74,13 @@ extension AnyTransition {
         AnyTransition.asymmetric(
             insertion: .move(edge: .trailing),
             removal: .move(edge: .leading))
+    }
+}
+
+struct ScaleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.8 : 1)
+            .animation(.easeOut(duration: 0.1), value: configuration.isPressed)
     }
 }

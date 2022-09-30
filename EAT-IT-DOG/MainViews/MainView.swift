@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct ScaleButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .scaleEffect(configuration.isPressed ? 0.8 : 1)
-            .animation(.easeOut(duration: 0.1), value: configuration.isPressed)
-    }
-}
-
 struct MainView: View {
     
     @Environment(\.safeAreaInsets) private var safeAreaInsets
@@ -44,6 +36,7 @@ struct MainView: View {
                             .foregroundColor(.basics)
                             .frame(width: 28, height: 28)
                     }
+                    .buttonStyle(ScaleButtonStyle())
                 }
                 .padding([.leading, .trailing], 24)
                 .frame(width: 303, height: 60)
@@ -58,6 +51,7 @@ struct MainView: View {
             // View
             Group {
                 switch selectedView {
+                case 0: LoginView()
                 case 1: SearchView()
                 case 2: HomeView()
                 case 3: OfferView()
@@ -104,6 +98,9 @@ struct MainView: View {
             }
         }
         .ignoresSafeArea(.keyboard)
+        .onTapGesture {
+            endTextEditing()
+        }
     }
 }
 

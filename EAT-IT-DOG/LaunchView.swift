@@ -12,6 +12,7 @@ struct LaunchView: View {
     // State Variable
     @State private var animated: [Bool] = [false, false, false]
     @State private var launched: Bool = false
+    @State private var easteregg: Bool = false
     
     var body: some View {
         if launched {
@@ -39,7 +40,7 @@ struct LaunchView: View {
                     }
                     Spacer()
                     if animated[2] {
-                        Image("Dog")
+                        Image(easteregg ? "Sangyong" : "Dog")
                             .resizable()
                             .frame(width: 235, height: 269)
                             .padding(.leading, 100)
@@ -65,7 +66,13 @@ struct LaunchView: View {
                     }
                 })
             }
-            
+            .onShake {
+                HapticManager.instance.notification(type: .error)
+                withAnimation(.default) {
+                    easteregg.toggle()
+                }
+            }
+
         }
     }
 }
