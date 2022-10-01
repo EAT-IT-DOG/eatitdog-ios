@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+enum Alignments {
+    case top
+    case bottom
+    case leading
+    case trailing
+}
+
 private struct SafeAreaInsetsKey: EnvironmentKey {
     static var defaultValue: EdgeInsets {
         (UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.safeAreaInsets ?? .zero).insets
@@ -41,6 +48,27 @@ extension View {
         ZStack {
             Color.background.ignoresSafeArea()
             self
+        }
+    }
+    
+    @ViewBuilder func setAlignment(_ alignment: Alignments) -> some View {
+        switch alignment {
+        case .top: VStack {
+            self
+            Spacer()
+        }
+        case .bottom: VStack {
+            Spacer()
+            self
+        }
+        case .leading: HStack {
+            self
+            Spacer()
+        }
+        case .trailing: HStack {
+            Spacer()
+            self
+        }
         }
     }
     

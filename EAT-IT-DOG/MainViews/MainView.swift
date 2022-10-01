@@ -15,7 +15,7 @@ struct MainView: View {
     // State Variable
     @State private var selectedView: Int = 2
     @State private var transition: AnyTransition = .slide
-    @State var searchText: String = ""
+    @State private var searchText: String = ""
     
     var body: some View {
         VStack(spacing: 0) {

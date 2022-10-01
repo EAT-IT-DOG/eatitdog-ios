@@ -10,9 +10,9 @@ import SwiftUI
 struct HomeView: View {
 
     // Static Variable
-    let category: [[String]] = [["유제품", "간식", "육류"],
-                                ["채소", "인스턴트", "해산물"],
-                                ["음료", "조미료", "과일"]]
+    private let category: [[String]] = [["유제품", "간식", "육류"],
+                                        ["채소", "인스턴트", "해산물"],
+                                        ["음료", "조미료", "과일"]]
     
     var body: some View {
         ScrollView {

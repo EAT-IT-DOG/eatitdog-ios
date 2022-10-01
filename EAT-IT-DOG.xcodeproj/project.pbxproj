@@ -23,6 +23,7 @@
 		935A7E3128E541C800C19115 /* EAT_IT_DOGUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E3028E541C800C19115 /* EAT_IT_DOGUITestsLaunchTests.swift */; };
 		935A7E3E28E5482B00C19115 /* ColorPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E3D28E5482B00C19115 /* ColorPreset.swift */; };
 		93619D4128E6633900CAE586 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93619D4028E6633900CAE586 /* LoginView.swift */; };
+		93619D4428E6A07E00CAE586 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93619D4328E6A07E00CAE586 /* RadioButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		935A7E3D28E5482B00C19115 /* ColorPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPreset.swift; sourceTree = "<group>"; };
 		93619D3E28E6534A00CAE586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		93619D4028E6633900CAE586 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		93619D4328E6A07E00CAE586 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				935A7E1328E541C600C19115 /* EAT_IT_DOGApp.swift */,
 				9307499A28E5DD13004555A2 /* LaunchView.swift */,
 				935A7E3F28E5482E00C19115 /* Presets */,
+				93619D4228E6A06B00CAE586 /* SubViews */,
 				930A47C028E5699400391DA5 /* MainViews */,
 				935A7E1728E541C800C19115 /* Assets.xcassets */,
 				935A7E1928E541C800C19115 /* Preview Content */,
@@ -210,6 +213,14 @@
 				93619D4028E6633900CAE586 /* LoginView.swift */,
 			);
 			path = LoginView;
+			sourceTree = "<group>";
+		};
+		93619D4228E6A06B00CAE586 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				93619D4328E6A07E00CAE586 /* RadioButton.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +356,7 @@
 				930A47CC28E56AAC00391DA5 /* ProfileView.swift in Sources */,
 				9307499B28E5DD13004555A2 /* LaunchView.swift in Sources */,
 				935A7E1628E541C600C19115 /* MainView.swift in Sources */,
+				93619D4428E6A07E00CAE586 /* RadioButton.swift in Sources */,
 				930A47CE28E56F0300391DA5 /* DevicePreset.swift in Sources */,
 				930A47C928E56A9000391DA5 /* OfferView.swift in Sources */,
 				935A7E3E28E5482B00C19115 /* ColorPreset.swift in Sources */,
