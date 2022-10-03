@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+extension Color {
+    static let basics = Color("Basics")
+    static let general = Color("General")
+    static let soft = Color("Soft")
+    static let background = Color("Background")
+    static let yellow = Color("Yellow")
+    static let green = Color("Green")
+}
+
 enum Alignments {
     case top
     case bottom
@@ -110,5 +119,17 @@ struct ScaleButtonStyle: ButtonStyle {
         configuration.label
             .scaleEffect(configuration.isPressed ? 0.8 : 1)
             .animation(.easeOut(duration: 0.1), value: configuration.isPressed)
+    }
+}
+
+public func touch() {
+    HapticManager.instance.impact(style: .light)
+}
+
+func colorLoop(_ list: [String], _ key: String) -> Color {
+    switch(list.firstIndex(where: { $0 == key })! % 3) {
+    case 0: return .green
+    case 1: return .yellow
+    default: return .accentColor
     }
 }

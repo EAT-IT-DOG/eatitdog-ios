@@ -39,20 +39,20 @@ struct HomeView: View {
                 
                 // Category Plate
                 VStack(spacing: 0) {
-                    ForEach(category, id: \.self) { i in
+                    ForEach(category, id: \.self) { line in
                         HStack(spacing: 0) {
-                            ForEach(i, id: \.self) { j in
+                            ForEach(line, id: \.self) { row in
                                 Button(action: {
-                                    
+                                    touch()
                                 }) {
                                     VStack(spacing: 13) {
-                                        Image(j)
+                                        Image(row)
                                             .resizable()
                                             .frame(width: 24, height: 24)
-                                            .if(j == "유제품") {
+                                            .if(row == "유제품") {
                                                 $0.padding(.leading, 8)
                                             }
-                                        Text(j)
+                                        Text(row)
                                             .foregroundColor(.basics)
                                     }
                                 }

@@ -28,7 +28,7 @@ struct MainView: View {
                         .foregroundColor(.basics)
                     Spacer()
                     Button(action: {
-                        
+                        touch()
                     }) {
                         Image("MiniSearch")
                             .renderingMode(.template)
@@ -73,7 +73,7 @@ struct MainView: View {
                                 .padding(.bottom, 70)
                         }
                         Button(action: {
-                            HapticManager.instance.impact(style: .light)
+                            touch()
                             transition = selectedView < idx ? .backslide : .slide
                             withAnimation(.easeInOut) {
                                 selectedView = idx

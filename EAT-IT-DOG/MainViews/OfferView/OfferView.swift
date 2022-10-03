@@ -34,6 +34,12 @@ struct OfferView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 
+                // Title
+                Text("제안하기")
+                    .font(.title3)
+                    .fontWeight(.medium)
+                    .foregroundColor(.basics)
+                
                 // Danger Alert
                 TitleText(text: "강아지에게 위험하나요?")
                 HStack(spacing: 28) {
@@ -45,13 +51,13 @@ struct OfferView: View {
                 // Food Category
                 TitleText(text: "음식 종류", type: true)
                 HStack(spacing: 0) {
-                    ForEach(category, id: \.self) { i in
+                    ForEach(category, id: \.self) { row in
                         VStack(alignment: .leading, spacing: 14) {
-                            ForEach(i, id: \.self) { j in
-                                RadioButton(pin: $selected, tag: j)
+                            ForEach(row, id: \.self) { line in
+                                RadioButton(pin: $selected, tag: line)
                             }
                         }
-                        if i != category.last {
+                        if row != category.last {
                             Spacer()
                         }
                     }
