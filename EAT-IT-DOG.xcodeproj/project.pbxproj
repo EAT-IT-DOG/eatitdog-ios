@@ -23,6 +23,7 @@
 		935A7E3128E541C800C19115 /* EAT_IT_DOGUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E3028E541C800C19115 /* EAT_IT_DOGUITestsLaunchTests.swift */; };
 		93619D4128E6633900CAE586 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93619D4028E6633900CAE586 /* LoginView.swift */; };
 		93619D4428E6A07E00CAE586 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93619D4328E6A07E00CAE586 /* RadioButton.swift */; };
+		93D6494428EB22B4003CC35D /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D6494328EB22B4003CC35D /* SearchAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		93619D3E28E6534A00CAE586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		93619D4028E6633900CAE586 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		93619D4328E6A07E00CAE586 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		93D6494328EB22B4003CC35D /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				930A47C528E56A7200391DA5 /* SearchView.swift */,
+				93D6494328EB22B4003CC35D /* SearchAPI.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 			files = (
 				930A47CC28E56AAC00391DA5 /* ProfileView.swift in Sources */,
 				9307499B28E5DD13004555A2 /* LaunchView.swift in Sources */,
+				93D6494428EB22B4003CC35D /* SearchAPI.swift in Sources */,
 				935A7E1628E541C600C19115 /* MainView.swift in Sources */,
 				93619D4428E6A07E00CAE586 /* RadioButton.swift in Sources */,
 				930A47CE28E56F0300391DA5 /* DevicePreset.swift in Sources */,

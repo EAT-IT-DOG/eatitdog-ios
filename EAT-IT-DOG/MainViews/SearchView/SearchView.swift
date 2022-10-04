@@ -11,6 +11,7 @@ struct SearchView: View {
 
     // State Variable
     @State private var activated: Bool = false
+    @State private var selected: String = ""
     
     // Normal Variable
     var screenWidth: CGFloat {
@@ -30,14 +31,34 @@ struct SearchView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 18) {
                     ForEach(category, id: \.self) { row in
-                        Text(row)
-                            .font(.footnote)
-                            .fontWeight(.medium)
-                            .padding([.leading, .trailing], 25)
-                            .frame(height: 34)
-                            .foregroundColor(.white)
-                            .background(colorLoop(category, row))
-                            .roundedCorner(15)
+                        Button(action: {
+                            touch()
+                            withAnimation(.default) {
+                                if selected == row {
+                                    selected = ""
+                                } else {
+                                    selected = row
+                                }
+                            }
+                        }) {
+                            Text(row)
+                                .font(.footnote)
+                                .fontWeight(.medium)
+                                .padding([.leading, .trailing], 25)
+                                .frame(height: 34)
+                                .foregroundColor(selected == row ?
+                                                 colorLoop(category, row) : .white)
+                                .if(selected != row) {
+                                    $0.background(colorLoop(category, row))
+                                        //.transition(.scale)
+                                }
+                                .background(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .strokeBorder(colorLoop(category, row), lineWidth: 1)
+                                )
+                                .roundedCorner(15)
+                        }
+                        .buttonStyle(ScaleButtonStyle())
                     }
                 }
                 .padding([.leading, .trailing],
@@ -50,6 +71,9 @@ struct SearchView: View {
                     }
                 }
             }
+            
+            // Food Cards
+            
         }
         .customBackground()
     }
