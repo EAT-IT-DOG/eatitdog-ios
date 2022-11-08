@@ -1,12 +1,9 @@
-//
-//  HapticPreset.swift
-//  EAT-IT-DOG
-//
-//  Created by Mercen on 2022/09/29.
-//
+/// Device Preset
+/// Created by Mercen on 2022/09/29.
 
 import SwiftUI
 
+// MARK: - Device Extensions
 extension UIDevice {
     static let deviceDidShakeNotification = Notification.Name(rawValue: "deviceDidShakeNotification")
 }
@@ -19,6 +16,7 @@ extension UIWindow {
      }
 }
 
+// MARK: - Device Shake Handler
 struct DeviceShakeViewModifier: ViewModifier {
     let action: () -> Void
 
@@ -31,6 +29,7 @@ struct DeviceShakeViewModifier: ViewModifier {
     }
 }
 
+// MARK: - Haptic Manager
 class HapticManager {
     static let instance = HapticManager()
     

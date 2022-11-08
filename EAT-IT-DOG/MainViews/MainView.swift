@@ -1,18 +1,15 @@
-//
-//  MainView.swift
-//  EAT-IT-DOG
-//
-//  Created by Mercen on 2022/09/29.
-//
+/// Main View Interface
+/// Created by Mercen on 2022/09/29.
 
 import SwiftUI
 
+// MARK: - Main View
 struct MainView: View {
     
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @Namespace private var animation
     
-    // State Variable
+    /// State Variables
     @State private var selectedView: Int = 2
     @State private var transition: AnyTransition = .slide
     @State private var searchText: String = ""
@@ -20,7 +17,7 @@ struct MainView: View {
     var body: some View {
         VStack(spacing: 0) {
             
-            // Search Bar
+            // MARK: - Search Bar
             if selectedView != 0 {
                 HStack(spacing: 0) {
                     TextField("", text: $searchText)
@@ -48,7 +45,7 @@ struct MainView: View {
                 .transition(transition)
             }
             
-            // View
+            // MARK: - View Changer
             Group {
                 switch selectedView {
                 case 0: LoginView()
@@ -60,7 +57,7 @@ struct MainView: View {
             }
             .transition(transition)
             
-            // Tab Bar
+            // MARK: - Bottom Tab Bar
             HStack {
                 Spacer()
                 ForEach(0..<5) { idx in

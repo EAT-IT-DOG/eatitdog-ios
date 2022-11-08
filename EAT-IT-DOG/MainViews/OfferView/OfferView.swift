@@ -1,9 +1,6 @@
-//
-//  OfferView.swift
-//  EAT-IT-DOG
-//
-//  Created by Mercen on 2022/09/29.
-//
+/// Offer View Interface
+/// Created by Mercen on 2022/09/29.
+
 
 import SwiftUI
 
@@ -19,13 +16,14 @@ struct TitleText: View {
     }
 }
 
+// MARK: - Offer View
 struct OfferView: View {
     
-    // State Variable
+    /// State Variables
     @State private var dangerous: String = ""
     @State private var selected: String = ""
     
-    // Static Variable
+    /// Static Variables
     private let category: [[String]] = [["유제품", "채소", "음료"],
                                         ["간식", "인스턴트", "조미료"],
                                         ["육류", "과일", "해산물"]]
@@ -34,13 +32,13 @@ struct OfferView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 
-                // Title
+                // MARK: - Title
                 Text("제안하기")
                     .font(.title3)
                     .fontWeight(.medium)
                     .foregroundColor(.basics)
                 
-                // Danger Alert
+                // MARK: - Danger Alert
                 TitleText(text: "강아지에게 위험하나요?")
                 HStack(spacing: 28) {
                     ForEach(["네", "아니오"], id: \.self) { tag in
@@ -48,7 +46,7 @@ struct OfferView: View {
                     }
                 }
                 
-                // Food Category
+                // MARK: - Food Category
                 TitleText(text: "음식 종류", type: true)
                 HStack(spacing: 0) {
                     ForEach(category, id: \.self) { row in

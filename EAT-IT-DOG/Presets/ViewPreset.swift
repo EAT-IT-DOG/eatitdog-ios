@@ -1,12 +1,9 @@
-//
-//  ViewPreset.swift
-//  EAT-IT-DOG
-//
-//  Created by Mercen on 2022/09/29.
-//
+/// View Preset
+/// Created by Mercen on 2022/09/29.
 
 import SwiftUI
 
+// MARK: - Color Extension
 extension Color {
     static let basics = Color("Basics")
     static let general = Color("General")
@@ -16,11 +13,13 @@ extension Color {
     static let green = Color("Green")
 }
 
-enum Alignments {
-    case top
-    case bottom
-    case leading
-    case trailing
+
+func colorLoop(_ list: [String], _ key: String) -> Color {
+    switch(list.firstIndex(where: { $0 == key })! % 3) {
+    case 0: return .green
+    case 1: return .yellow
+    default: return .accentColor
+    }
 }
 
 private struct SafeAreaInsetsKey: EnvironmentKey {
@@ -41,6 +40,14 @@ private extension UIEdgeInsets {
     }
 }
 
+enum Alignments {
+    case top
+    case bottom
+    case leading
+    case trailing
+}
+
+// MARK: - View Extension
 extension View {
     
     @ViewBuilder func `if`<Transform: View>(_ condition: Bool, transform: (Self) -> Transform) -> some View {
@@ -106,6 +113,7 @@ extension View {
     
 }
 
+// MARK: - Transition Extension
 extension AnyTransition {
     static var backslide: AnyTransition {
         AnyTransition.asymmetric(
@@ -114,6 +122,7 @@ extension AnyTransition {
     }
 }
 
+// MARK: - Button Style
 struct ScaleButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -124,12 +133,4 @@ struct ScaleButtonStyle: ButtonStyle {
 
 public func touch() {
     HapticManager.instance.impact(style: .light)
-}
-
-func colorLoop(_ list: [String], _ key: String) -> Color {
-    switch(list.firstIndex(where: { $0 == key })! % 3) {
-    case 0: return .green
-    case 1: return .yellow
-    default: return .accentColor
-    }
 }

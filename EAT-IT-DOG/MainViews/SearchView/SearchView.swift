@@ -1,24 +1,21 @@
-//
-//  SearchView.swift
-//  EAT-IT-DOG
-//
-//  Created by Mercen on 2022/09/29.
-//
+/// Search View Interface
+/// Created by Mercen on 2022/09/29.
 
 import SwiftUI
 
+// MARK: - Search View
 struct SearchView: View {
 
-    // State Variable
+    /// State Variables
     @State private var activated: Bool = false
     @State private var selected: String = ""
     
-    // Normal Variable
-    var screenWidth: CGFloat {
+    /// Local Variables
+    private var screenWidth: CGFloat {
         return UIScreen.main.bounds.size.width
     }
     
-    // Static Variable
+    /// Static Variables
     private let category: [String] = ["유제품", "간식", "육류",
                                       "채소", "인스턴트", "해산물",
                                       "음료", "조미료", "과일"]
@@ -27,7 +24,7 @@ struct SearchView: View {
         
         ScrollView {
             
-            // Category Selection
+            // MARK: - Category Selection
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 18) {
                     ForEach(category, id: \.self) { row in
@@ -72,7 +69,7 @@ struct SearchView: View {
                 }
             }
             
-            // Food Cards
+            // MARK: - Food Cards
             
         }
         .customBackground()

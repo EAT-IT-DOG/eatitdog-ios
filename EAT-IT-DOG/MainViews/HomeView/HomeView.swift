@@ -1,15 +1,13 @@
-//
-//  HomeView.swift
-//  EAT-IT-DOG
-//
-//  Created by Mercen on 2022/09/29.
-//
+/// Home View Interface
+/// Created by Mercen on 2022/09/29.
+
 
 import SwiftUI
 
+// MARK: - Home View
 struct HomeView: View {
 
-    // Static Variable
+    /// Static Variables
     private let category: [[String]] = [["유제품", "간식", "육류"],
                                         ["채소", "인스턴트", "해산물"],
                                         ["음료", "조미료", "과일"]]
@@ -19,7 +17,7 @@ struct HomeView: View {
             
             VStack(spacing: 40) {
                 
-                // Banner
+                // MARK: - Banner
                 VStack(spacing: 0) {
                     Text("강아지가 먹어도 되는\n음식인지 검색해 보세요!")
                         .foregroundColor(.white)
@@ -37,7 +35,7 @@ struct HomeView: View {
                     startPoint: .top, endPoint: .bottom))
                 .roundedCorner(15)
                 
-                // Category Plate
+                // MARK: - Category Plate
                 VStack(spacing: 0) {
                     ForEach(category, id: \.self) { line in
                         HStack(spacing: 0) {

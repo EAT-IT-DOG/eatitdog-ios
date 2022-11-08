@@ -1,12 +1,9 @@
-//
-//  RadioButton.swift
-//  EAT-IT-DOG
-//
-//  Created by Mercen on 2022/09/30.
-//
+/// Radio Button SubView
+/// Created by Mercen on 2022/09/30.
 
 import SwiftUI
 
+// MARK: - Radio Button
 struct RadioButton: View {
     @Binding var pin: String
     let tag: String

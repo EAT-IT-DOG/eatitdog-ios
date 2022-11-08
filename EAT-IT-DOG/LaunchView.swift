@@ -1,15 +1,12 @@
-//
-//  LaunchView.swift
-//  EAT-IT-DOG
-//
-//  Created by Mercen on 2022/09/29.
-//
+/// Launch Screen
+/// Created by Mercen on 2022/09/29.
 
 import SwiftUI
 
+// MARK: - Launch View
 struct LaunchView: View {
     
-    // State Variable
+    /// State Variables
     @State private var animated: [Bool] = [false, false, false]
     @State private var launched: Bool = false
     @State private var easteregg: Bool = false
@@ -19,7 +16,7 @@ struct LaunchView: View {
             MainView()
         } else {
             
-            // Launch Screen
+            // MARK: - Logo and Slogan
             ZStack {
                 Color.accentColor.ignoresSafeArea()
                 VStack {
