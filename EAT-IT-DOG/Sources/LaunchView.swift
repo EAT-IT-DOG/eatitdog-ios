@@ -1,5 +1,9 @@
-/// Launch Screen
-/// Created by Mercen on 2022/09/29.
+//
+//  LaunchView.swift
+//  EAT-IT-DOG
+//
+//  Created by Mercen on 2022/09/29.
+//
 
 import SwiftUI
 
@@ -48,6 +52,7 @@ struct LaunchView: View {
                 .foregroundColor(.white)
                 .padding(40)
             }
+            .zIndex(1)
             .transition(.backslide)
             .onAppear {
                 for idx in 0..<3 {
@@ -69,7 +74,6 @@ struct LaunchView: View {
                     easteregg.toggle()
                 }
             }
-
         }
     }
 }

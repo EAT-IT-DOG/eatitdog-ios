@@ -1,5 +1,9 @@
-/// Search API
-/// Created by Mercen on 2022/09/29.
+//
+//  SearchModel.swift
+//  EAT-IT-DOG
+//
+//  Created by Mercen on 2022/09/29.
+//
 
 struct SearchDatas: Decodable, Hashable {
     let status: Int

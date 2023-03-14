@@ -1,6 +1,9 @@
-/// Offer View Interface
-/// Created by Mercen on 2022/09/29.
-
+//
+//  OfferView.swift
+//  EAT-IT-DOG
+//
+//  Created by Mercen on 2022/09/29.
+//
 
 import SwiftUI
 

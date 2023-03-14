@@ -8,36 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		9307499B28E5DD13004555A2 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9307499A28E5DD13004555A2 /* LaunchView.swift */; };
-		930A47BF28E5669700391DA5 /* ViewPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A47BE28E5669700391DA5 /* ViewPreset.swift */; };
+		930A47BF28E5669700391DA5 /* MotionExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A47BE28E5669700391DA5 /* MotionExt.swift */; };
 		930A47C328E569A600391DA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A47C228E569A600391DA5 /* HomeView.swift */; };
 		930A47C628E56A7200391DA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A47C528E56A7200391DA5 /* SearchView.swift */; };
 		930A47C928E56A9000391DA5 /* OfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A47C828E56A9000391DA5 /* OfferView.swift */; };
 		930A47CC28E56AAC00391DA5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A47CB28E56AAC00391DA5 /* ProfileView.swift */; };
-		930A47CE28E56F0300391DA5 /* DevicePreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A47CD28E56F0300391DA5 /* DevicePreset.swift */; };
-		935A7E1428E541C600C19115 /* EAT_IT_DOGApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E1328E541C600C19115 /* EAT_IT_DOGApp.swift */; };
+		935A7E1428E541C600C19115 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E1328E541C600C19115 /* AppMain.swift */; };
 		935A7E1628E541C600C19115 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A7E1528E541C600C19115 /* MainView.swift */; };
 		935A7E1828E541C800C19115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 935A7E1728E541C800C19115 /* Assets.xcassets */; };
 		93619D4128E6633900CAE586 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93619D4028E6633900CAE586 /* LoginView.swift */; };
 		93619D4428E6A07E00CAE586 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93619D4328E6A07E00CAE586 /* RadioButton.swift */; };
-		93D6494428EB22B4003CC35D /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D6494328EB22B4003CC35D /* SearchAPI.swift */; };
+		9370EE0929C02F8B000E47EB /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370EE0829C02F8B000E47EB /* ViewExt.swift */; };
+		9370EE0C29C0367F000E47EB /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370EE0B29C0367F000E47EB /* ColorExt.swift */; };
+		9370EE0E29C0369D000E47EB /* DeviceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370EE0D29C0369D000E47EB /* DeviceExt.swift */; };
+		93D6494428EB22B4003CC35D /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D6494328EB22B4003CC35D /* SearchModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9307499A28E5DD13004555A2 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
-		930A47BE28E5669700391DA5 /* ViewPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPreset.swift; sourceTree = "<group>"; };
+		930A47BE28E5669700391DA5 /* MotionExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionExt.swift; sourceTree = "<group>"; };
 		930A47C228E569A600391DA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		930A47C528E56A7200391DA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		930A47C828E56A9000391DA5 /* OfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferView.swift; sourceTree = "<group>"; };
 		930A47CB28E56AAC00391DA5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		930A47CD28E56F0300391DA5 /* DevicePreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePreset.swift; sourceTree = "<group>"; };
 		935A7E1028E541C600C19115 /* EAT-IT-DOG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EAT-IT-DOG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		935A7E1328E541C600C19115 /* EAT_IT_DOGApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EAT_IT_DOGApp.swift; sourceTree = "<group>"; };
+		935A7E1328E541C600C19115 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
 		935A7E1528E541C600C19115 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		935A7E1728E541C800C19115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		93619D3E28E6534A00CAE586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		93619D4028E6633900CAE586 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		93619D4328E6A07E00CAE586 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
-		93D6494328EB22B4003CC35D /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		9370EE0829C02F8B000E47EB /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
+		9370EE0B29C0367F000E47EB /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
+		9370EE0D29C0369D000E47EB /* DeviceExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceExt.swift; sourceTree = "<group>"; };
+		93D6494328EB22B4003CC35D /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,50 +54,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		930A47C028E5699400391DA5 /* MainViews */ = {
+		930A47C028E5699400391DA5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				935A7E1528E541C600C19115 /* MainView.swift */,
-				93619D3F28E6632E00CAE586 /* LoginView */,
-				930A47C428E56A6700391DA5 /* SearchView */,
-				930A47C128E5699C00391DA5 /* HomeView */,
-				930A47C728E56A8900391DA5 /* OfferView */,
-				930A47CA28E56AA000391DA5 /* ProfileView */,
+				9307499A28E5DD13004555A2 /* LaunchView.swift */,
+				9370EE0F29C036F3000E47EB /* Main */,
 			);
-			path = MainViews;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		930A47C128E5699C00391DA5 /* HomeView */ = {
+		930A47C128E5699C00391DA5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				930A47C228E569A600391DA5 /* HomeView.swift */,
 			);
-			path = HomeView;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		930A47C428E56A6700391DA5 /* SearchView */ = {
+		930A47C428E56A6700391DA5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				930A47C528E56A7200391DA5 /* SearchView.swift */,
-				93D6494328EB22B4003CC35D /* SearchAPI.swift */,
+				93D6494328EB22B4003CC35D /* SearchModel.swift */,
 			);
-			path = SearchView;
+			path = Search;
 			sourceTree = "<group>";
 		};
-		930A47C728E56A8900391DA5 /* OfferView */ = {
+		930A47C728E56A8900391DA5 /* Offer */ = {
 			isa = PBXGroup;
 			children = (
 				930A47C828E56A9000391DA5 /* OfferView.swift */,
 			);
-			path = OfferView;
+			path = Offer;
 			sourceTree = "<group>";
 		};
-		930A47CA28E56AA000391DA5 /* ProfileView */ = {
+		930A47CA28E56AA000391DA5 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				930A47CB28E56AAC00391DA5 /* ProfileView.swift */,
 			);
-			path = ProfileView;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		935A7E0728E541C600C19115 = {
@@ -116,13 +115,8 @@
 		935A7E1228E541C600C19115 /* EAT-IT-DOG */ = {
 			isa = PBXGroup;
 			children = (
-				93619D3E28E6534A00CAE586 /* Info.plist */,
-				935A7E1328E541C600C19115 /* EAT_IT_DOGApp.swift */,
-				9307499A28E5DD13004555A2 /* LaunchView.swift */,
-				935A7E3F28E5482E00C19115 /* Presets */,
-				93619D4228E6A06B00CAE586 /* SubViews */,
-				930A47C028E5699400391DA5 /* MainViews */,
-				935A7E1728E541C800C19115 /* Assets.xcassets */,
+				9370EE0429C02F61000E47EB /* Resources */,
+				930A47C028E5699400391DA5 /* Sources */,
 				935A7E1928E541C800C19115 /* Preview Content */,
 			);
 			path = "EAT-IT-DOG";
@@ -135,29 +129,71 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		935A7E3F28E5482E00C19115 /* Presets */ = {
-			isa = PBXGroup;
-			children = (
-				930A47BE28E5669700391DA5 /* ViewPreset.swift */,
-				930A47CD28E56F0300391DA5 /* DevicePreset.swift */,
-			);
-			path = Presets;
-			sourceTree = "<group>";
-		};
-		93619D3F28E6632E00CAE586 /* LoginView */ = {
+		93619D3F28E6632E00CAE586 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				93619D4028E6633900CAE586 /* LoginView.swift */,
 			);
-			path = LoginView;
+			path = Login;
 			sourceTree = "<group>";
 		};
-		93619D4228E6A06B00CAE586 /* SubViews */ = {
+		9370EE0429C02F61000E47EB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				935A7E1328E541C600C19115 /* AppMain.swift */,
+				935A7E1728E541C800C19115 /* Assets.xcassets */,
+				9370EE0529C02F6D000E47EB /* Extensions */,
+				9370EE0A29C03036000E47EB /* Components */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9370EE0529C02F6D000E47EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9370EE0729C02F81000E47EB /* Foundation */,
+				9370EE0629C02F7B000E47EB /* SwiftUI */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9370EE0629C02F7B000E47EB /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				9370EE0829C02F8B000E47EB /* ViewExt.swift */,
+				930A47BE28E5669700391DA5 /* MotionExt.swift */,
+				9370EE0B29C0367F000E47EB /* ColorExt.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		9370EE0729C02F81000E47EB /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				9370EE0D29C0369D000E47EB /* DeviceExt.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		9370EE0A29C03036000E47EB /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				93619D4328E6A07E00CAE586 /* RadioButton.swift */,
 			);
-			path = SubViews;
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9370EE0F29C036F3000E47EB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				935A7E1528E541C600C19115 /* MainView.swift */,
+				93619D3F28E6632E00CAE586 /* Login */,
+				930A47C428E56A6700391DA5 /* Search */,
+				930A47C128E5699C00391DA5 /* Home */,
+				930A47C728E56A8900391DA5 /* Offer */,
+				930A47CA28E56AA000391DA5 /* Profile */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,16 +267,18 @@
 			files = (
 				930A47CC28E56AAC00391DA5 /* ProfileView.swift in Sources */,
 				9307499B28E5DD13004555A2 /* LaunchView.swift in Sources */,
-				93D6494428EB22B4003CC35D /* SearchAPI.swift in Sources */,
+				93D6494428EB22B4003CC35D /* SearchModel.swift in Sources */,
 				935A7E1628E541C600C19115 /* MainView.swift in Sources */,
 				93619D4428E6A07E00CAE586 /* RadioButton.swift in Sources */,
-				930A47CE28E56F0300391DA5 /* DevicePreset.swift in Sources */,
+				9370EE0E29C0369D000E47EB /* DeviceExt.swift in Sources */,
 				930A47C928E56A9000391DA5 /* OfferView.swift in Sources */,
-				930A47BF28E5669700391DA5 /* ViewPreset.swift in Sources */,
+				9370EE0929C02F8B000E47EB /* ViewExt.swift in Sources */,
+				930A47BF28E5669700391DA5 /* MotionExt.swift in Sources */,
 				930A47C328E569A600391DA5 /* HomeView.swift in Sources */,
 				93619D4128E6633900CAE586 /* LoginView.swift in Sources */,
 				930A47C628E56A7200391DA5 /* SearchView.swift in Sources */,
-				935A7E1428E541C600C19115 /* EAT_IT_DOGApp.swift in Sources */,
+				935A7E1428E541C600C19115 /* AppMain.swift in Sources */,
+				9370EE0C29C0367F000E47EB /* ColorExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +410,6 @@
 				DEVELOPMENT_TEAM = 56V747V83R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "EAT-IT-DOG/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "먹어보시개";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -407,7 +444,6 @@
 				DEVELOPMENT_TEAM = 56V747V83R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "EAT-IT-DOG/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "먹어보시개";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

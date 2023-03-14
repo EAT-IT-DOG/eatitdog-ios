@@ -1,5 +1,9 @@
-/// Device Preset
-/// Created by Mercen on 2022/09/29.
+//
+//  DeviceExt.swift
+//  EAT-IT-DOG
+//
+//  Created by Mercen on 2023/03/14.
+//
 
 import SwiftUI
 
