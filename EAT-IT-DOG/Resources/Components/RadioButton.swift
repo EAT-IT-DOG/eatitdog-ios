@@ -44,6 +44,7 @@ struct RadioButton: View {
             Text(tag)
                 .foregroundColor(.basics)
                 .onTapGesture(perform: clickAction)
+                .setFont(16)
         }
     }
 }

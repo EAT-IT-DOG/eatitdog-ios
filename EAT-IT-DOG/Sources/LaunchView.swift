@@ -27,14 +27,14 @@ struct LaunchView: View {
                     Spacer()
                     if animated[0] {
                         Text("먹어보시개")
-                            .font(.system(size: 43))
+                            .setFont(40, .medium)
                             .fontWeight(.medium)
                             .transition(.opacity)
                             .frame(height: 70)
                     }
                     if animated[1] {
                         Text("세상의 모든 좋은 음식이\n반려견에게 닿을 때까지")
-                            .font(.title)
+                            .setFont(24)
                             .multilineTextAlignment(.center)
                             .transition(.opacity)
                             .frame(height: 70)

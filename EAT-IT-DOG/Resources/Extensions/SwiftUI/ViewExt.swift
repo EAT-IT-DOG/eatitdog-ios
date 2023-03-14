@@ -10,6 +10,11 @@ import SwiftUI
 // MARK: - View Extension
 extension View {
     
+    @ViewBuilder func setFont(_ size: CGFloat, _ weight: Font.Weight = .regular) -> some View {
+        self
+            .font(.system(size: size, weight: weight))
+    }
+    
     @ViewBuilder func `if`<Transform: View>(_ condition: Bool, transform: (Self) -> Transform) -> some View {
         if condition { transform(self) }
         else { self }

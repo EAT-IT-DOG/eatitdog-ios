@@ -26,6 +26,7 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.top, 30)
+                        .setFont(16)
                     Image("Girl")
                         .resizable()
                         .scaledToFit()
@@ -55,6 +56,7 @@ struct HomeView: View {
                                             }
                                         Text(row)
                                             .foregroundColor(.basics)
+                                            .setFont(16)
                                     }
                                 }
                                 .frame(width: 101, height: 120)

@@ -12,7 +12,7 @@ struct TitleText: View {
     var type: Bool = false
     var body: some View {
         Text(text)
-            .fontWeight(.medium)
+            .setFont(16, .medium)
             .foregroundColor(.basics)
             .padding(.bottom, 16)
             .padding(.top, type ? 19 : 22)
@@ -37,7 +37,7 @@ struct OfferView: View {
                 
                 // MARK: - Title
                 Text("제안하기")
-                    .font(.title3)
+                    .setFont(18, .medium)
                     .fontWeight(.medium)
                     .foregroundColor(.basics)
                 

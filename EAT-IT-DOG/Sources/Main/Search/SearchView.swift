@@ -43,8 +43,7 @@ struct SearchView: View {
                             }
                         }) {
                             Text(row)
-                                .font(.footnote)
-                                .fontWeight(.medium)
+                                .setFont(14, .medium)
                                 .padding([.leading, .trailing], 25)
                                 .frame(height: 34)
                                 .foregroundColor(selected == row ?

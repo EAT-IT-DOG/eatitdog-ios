@@ -27,6 +27,7 @@ struct MainView: View {
                     TextField("", text: $searchText)
                         .placeholder("음식 이름을 입력하세요", when: searchText.isEmpty)
                         .foregroundColor(.basics)
+                        .setFont(16)
                     Spacer()
                     Button(action: {
                         touch()
