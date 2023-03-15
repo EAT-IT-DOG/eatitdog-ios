@@ -19,15 +19,14 @@ class Requests {
         }
     }
     
-    static func simple(_ url: String,
+    static func simple(_ uri: String,
                        _ method: HTTPMethod,
                        params: [String: Any]? = nil,
                        completion: @escaping () -> Void) {
-        AF.request(url,
+        AF.request("\(API)\(uri)",
                    method: method,
                    parameters: params,
-                   encoding: method == .get ? URLEncoding.default : JSONEncoding.default,
-                   interceptor: Interceptor()
+                   encoding: method == .get ? URLEncoding.default : JSONEncoding.default
         )
         .validate()
         .responseData { response in
@@ -43,16 +42,15 @@ class Requests {
         }
     }
     
-    static func request<T: Codable>(_ url: String,
+    static func request<T: Codable>(_ uri: String,
                                     _ method: HTTPMethod,
                                     params: [String: Any]? = nil,
                                     _ model: T.Type,
                                     completion: @escaping (T) -> Void) {
-        AF.request(url,
+        AF.request("\(API)\(uri)",
                    method: method,
                    parameters: params,
-                   encoding: method == .get ? URLEncoding.default : JSONEncoding.default,
-                   interceptor: Interceptor()
+                   encoding: method == .get ? URLEncoding.default : JSONEncoding.default
         )
         .validate()
         .responseData { response in
@@ -66,7 +64,7 @@ class Requests {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                    //let decodedData = try! decoder.decode(Response<T>.self, from: data)
+                    let decodedData = try! decoder.decode(T.self, from: data)
                     if let decodedData = try? decoder.decode(T.self, from: data) {
                         DispatchQueue.main.async {
                             completion(decodedData)

@@ -9,6 +9,9 @@ import SwiftUI
 
 // MARK: - Search View
 struct SearchView: View {
+    
+    /// Model
+    @StateObject private var state = SearchState()
 
     /// State Variables
     @State private var activated: Bool = false
@@ -73,8 +76,29 @@ struct SearchView: View {
             }
             
             // MARK: - Food Cards
-            
+            LazyVStack(spacing: 24) {
+                ForEach(state.data, id: \.self) { data in
+                    VStack(spacing: 4) {
+                        Text(data.name)
+                            .setFont(24, .medium)
+                        Text(data.type.toName)
+                            .setFont(18)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .foregroundColor(.white)
+                    .background({ () -> Color in
+                        switch data.safeness {
+                        case .safe: return .green
+                        case .normal: return .yellow
+                        case .dangerous: return .accentColor
+                        }
+                    }())
+                    .frame(width: 303, height: 150)
+                    .cornerRadius(15)
+                }
+            }
         }
         .customBackground()
+        .onAppear(perform: state.fetch)
     }
 }
