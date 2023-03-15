@@ -22,6 +22,9 @@ struct TitleText: View {
 // MARK: - Offer View
 struct OfferView: View {
     
+    /// Model
+    @StateObject var model = OfferModel()
+    
     /// State Variables
     @State private var dangerous: String = ""
     @State private var selected: String = ""
@@ -38,8 +41,10 @@ struct OfferView: View {
                 // MARK: - Title
                 Text("제안하기")
                     .setFont(18, .medium)
-                    .fontWeight(.medium)
                     .foregroundColor(.basics)
+                
+                TitleText(text: "음식 이름")
+                CustomTextField("음식 이름을 입력하세요", text: $model.foodName)
                 
                 // MARK: - Danger Alert
                 TitleText(text: "강아지에게 위험하나요?")

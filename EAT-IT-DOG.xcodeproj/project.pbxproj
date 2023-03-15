@@ -23,6 +23,11 @@
 		9370EE0E29C0369D000E47EB /* DeviceExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370EE0D29C0369D000E47EB /* DeviceExt.swift */; };
 		9370EE1229C07EAA000E47EB /* TextExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9370EE1129C07EAA000E47EB /* TextExt.swift */; };
 		93D6494428EB22B4003CC35D /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D6494328EB22B4003CC35D /* SearchModel.swift */; };
+		93F631DD29C0A2B700CBA643 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F631DC29C0A2B700CBA643 /* Constants.swift */; };
+		93F631DF29C0A2D300CBA643 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F631DE29C0A2D300CBA643 /* Request.swift */; };
+		93F631E229C0A2E300CBA643 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 93F631E129C0A2E300CBA643 /* Alamofire */; };
+		93F631E429C13B7200CBA643 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F631E329C13B7200CBA643 /* TextField.swift */; };
+		93F631E629C13C7100CBA643 /* OfferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F631E529C13C7100CBA643 /* OfferModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,10 @@
 		9370EE1029C03791000E47EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9370EE1129C07EAA000E47EB /* TextExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExt.swift; sourceTree = "<group>"; };
 		93D6494328EB22B4003CC35D /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		93F631DC29C0A2B700CBA643 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		93F631DE29C0A2D300CBA643 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		93F631E329C13B7200CBA643 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		93F631E529C13C7100CBA643 /* OfferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93F631E229C0A2E300CBA643 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				930A47C828E56A9000391DA5 /* OfferView.swift */,
+				93F631E529C13C7100CBA643 /* OfferModel.swift */,
 			);
 			path = Offer;
 			sourceTree = "<group>";
@@ -146,6 +157,7 @@
 			children = (
 				935A7E1328E541C600C19115 /* AppMain.swift */,
 				935A7E1728E541C800C19115 /* Assets.xcassets */,
+				93F631DB29C09C3200CBA643 /* Network */,
 				9370EE0529C02F6D000E47EB /* Extensions */,
 				9370EE0A29C03036000E47EB /* Components */,
 			);
@@ -184,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				93619D4328E6A07E00CAE586 /* RadioButton.swift */,
+				93F631E329C13B7200CBA643 /* TextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -199,6 +212,15 @@
 				930A47CA28E56AA000391DA5 /* Profile */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		93F631DB29C09C3200CBA643 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				93F631DC29C0A2B700CBA643 /* Constants.swift */,
+				93F631DE29C0A2D300CBA643 /* Request.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +239,9 @@
 			dependencies = (
 			);
 			name = "EAT-IT-DOG";
+			packageProductDependencies = (
+				93F631E129C0A2E300CBA643 /* Alamofire */,
+			);
 			productName = "EAT-IT-DOG";
 			productReference = 935A7E1028E541C600C19115 /* EAT-IT-DOG.app */;
 			productType = "com.apple.product-type.application";
@@ -245,6 +270,9 @@
 				Base,
 			);
 			mainGroup = 935A7E0728E541C600C19115;
+			packageReferences = (
+				93F631E029C0A2E300CBA643 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 935A7E1128E541C600C19115 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -277,12 +305,16 @@
 				93619D4428E6A07E00CAE586 /* RadioButton.swift in Sources */,
 				9370EE0E29C0369D000E47EB /* DeviceExt.swift in Sources */,
 				9370EE1229C07EAA000E47EB /* TextExt.swift in Sources */,
+				93F631DF29C0A2D300CBA643 /* Request.swift in Sources */,
+				93F631DD29C0A2B700CBA643 /* Constants.swift in Sources */,
 				930A47C928E56A9000391DA5 /* OfferView.swift in Sources */,
 				9370EE0929C02F8B000E47EB /* ViewExt.swift in Sources */,
 				930A47BF28E5669700391DA5 /* MotionExt.swift in Sources */,
 				930A47C328E569A600391DA5 /* HomeView.swift in Sources */,
+				93F631E629C13C7100CBA643 /* OfferModel.swift in Sources */,
 				93619D4128E6633900CAE586 /* LoginView.swift in Sources */,
 				930A47C628E56A7200391DA5 /* SearchView.swift in Sources */,
+				93F631E429C13B7200CBA643 /* TextField.swift in Sources */,
 				935A7E1428E541C600C19115 /* AppMain.swift in Sources */,
 				9370EE0C29C0367F000E47EB /* ColorExt.swift in Sources */,
 			);
@@ -495,6 +527,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		93F631E029C0A2E300CBA643 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		93F631E129C0A2E300CBA643 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93F631E029C0A2E300CBA643 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 935A7E0828E541C600C19115 /* Project object */;
 }
