@@ -16,7 +16,7 @@ struct HomeView: View {
                                         ["음료", "조미료", "과일"]]
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             
             VStack(spacing: 26) {
                 
