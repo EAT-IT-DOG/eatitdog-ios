@@ -1,5 +1,5 @@
 //
-//  SearchViewCell.swift
+//  SearchCellView.swift
 //  eatitdog
 //
 //  Created by Mercen on 2023/03/16.
@@ -22,6 +22,7 @@ struct TextContainer: View {
             Text(head)
                 .minimumScaleFactor(1.0)
                 .setFont(14, .medium)
+                .foregroundColor(.basics)
             Text(text)
                 .minimumScaleFactor(1.0)
                 .setFont(16)
@@ -30,7 +31,8 @@ struct TextContainer: View {
     }
 }
 
-struct SearchViewCell: View {
+// MARK: - Search Cell View
+struct SearchCellView: View {
     
     /// Namespace
     @Namespace private var animation
@@ -42,6 +44,18 @@ struct SearchViewCell: View {
         Group {
             if selected == data {
                 VStack(alignment: .leading, spacing: 24) {
+                    VStack(alignment: .trailing, spacing: 0) {
+                        Circle()
+                            .fill(data.safeness.toColor)
+                            .frame(width: 18, height: 18)
+                        Text(data.safeness.toName)
+                            .setFont(12)
+                            .foregroundColor(.general)
+                        Text(data.name)
+                            .setFont(24, .medium)
+                            .foregroundColor(.basics)
+                            .setAlignment(.leading)
+                    }
                     TextContainer("섭취 가능 여부", data.safeness.toSentence)
                     if let eatingMethod = data.eatingMethod {
                         TextContainer("급여 방법", eatingMethod)
@@ -55,6 +69,7 @@ struct SearchViewCell: View {
                     Button(action: {
                         withAnimation(.easeInOut) {
                             selected = nil
+                            touch()
                         }
                     }) {
                         Text("확인")
@@ -76,6 +91,7 @@ struct SearchViewCell: View {
                 Button(action: {
                     withAnimation(.easeInOut) {
                         selected = data
+                        touch()
                     }
                 }) {
                     VStack(spacing: 4) {

@@ -12,12 +12,6 @@ struct SearchView: View {
     
     /// Model
     @StateObject private var state = SearchState()
-
-    /// State Variables
-    @State private var activated: Bool = false
-    @State private var opacity: CGFloat = 1
-    @State private var selectedFilter: FoodType?
-    @State private var selected: Food?
     
     /// Local Variables
     private var screenWidth: CGFloat {
@@ -35,12 +29,12 @@ struct SearchView: View {
                         Button(action: {
                             touch()
                             withAnimation(.default) {
-                                if selectedFilter == row {
-                                    selectedFilter = nil
+                                if state.selectedFilter == row {
+                                    state.selectedFilter = nil
                                 } else {
-                                    selectedFilter = row
-                                    if selected?.type != selectedFilter {
-                                        selected = nil
+                                    state.selectedFilter = row
+                                    if state.selected?.type != state.selectedFilter {
+                                        state.selected = nil
                                     }
                                 }
                             }
@@ -49,8 +43,8 @@ struct SearchView: View {
                                 .setFont(14, .medium)
                                 .padding([.leading, .trailing], 25)
                                 .frame(height: 34)
-                                .foregroundColor(selectedFilter == row ? row.toColor : .white)
-                                .if(selectedFilter != row) {
+                                .foregroundColor(state.selectedFilter == row ? row.toColor : .white)
+                                .if(state.selectedFilter != row) {
                                     $0.background(row.toColor)
                                         //.transition(.scale)
                                 }
@@ -64,11 +58,11 @@ struct SearchView: View {
                     }
                 }
                 .padding([.leading, .trailing],
-                         activated ? (screenWidth - 303) / 2 : screenWidth + 100)
+                         state.activated ? (screenWidth - 303) / 2 : screenWidth + 100)
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         withAnimation(.easeInOut) {
-                            activated.toggle()
+                            state.activated.toggle()
                         }
                     }
                 }
@@ -84,13 +78,13 @@ struct SearchView: View {
                                 GeometryReader { insideProxy in
                                     EmptyView()
                                         .onChange(of: insideProxy.frame(in: .global).minY) { newValue in
-                                            opacity = 1 - (outsideProxy.frame(in: .global).minY - newValue) / 100
+                                            state.opacity = 1 - (outsideProxy.frame(in: .global).minY - newValue) / 100
                                         }
                                 }
                                 LazyVStack(spacing: 24) {
                                     ForEach(state.data, id: \.self) { data in
-                                        if [nil, data.type].contains(selectedFilter) {
-                                            SearchViewCell(selected: $selected, data: data)
+                                        if [nil, data.type].contains(state.selectedFilter) {
+                                            SearchCellView(selected: $state.selected, data: data)
                                         }
                                     }
                                 }
@@ -98,7 +92,7 @@ struct SearchView: View {
                                 .padding(.bottom, 28)
                             }
                         }
-                        .onChange(of: selected) { newValue in
+                        .onChange(of: state.selected) { newValue in
                             if let toValue = newValue {
                                 withAnimation(.easeInOut) {
                                     value.scrollTo(toValue.id, anchor: .top)
@@ -110,7 +104,7 @@ struct SearchView: View {
                 }
                 
                 // MARK: - Safeness
-                if selected == nil {
+                if state.selected == nil {
                     HStack(spacing: 7) {
                         ForEach(FoodSafeness.allCases, id: \.self) { type in
                             VStack {
@@ -125,7 +119,7 @@ struct SearchView: View {
                     }
                     .transition(.opacity)
                     .padding(.trailing, (screenWidth - 303) / 2)
-                    .opacity(opacity > 0.6 ? opacity : 0.6)
+                    .opacity(state.opacity > 0.6 ? state.opacity : 0.6)
                 }
             }
         }
