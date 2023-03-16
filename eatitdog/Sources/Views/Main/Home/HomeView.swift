@@ -18,7 +18,7 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             
-            VStack(spacing: 40) {
+            VStack(spacing: 26) {
                 
                 // MARK: - Banner
                 VStack(spacing: 0) {
@@ -69,7 +69,7 @@ struct HomeView: View {
                 .roundedCorner(15)
                 .frame(maxWidth: .infinity)
             }
-            .padding(.bottom, 40)
+            .padding(.bottom, 28)
         }
         .customBackground()
     }

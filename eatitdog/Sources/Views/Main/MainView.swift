@@ -40,11 +40,12 @@ struct MainView: View {
                     }
                     .buttonStyle(ScaleButtonStyle())
                 }
-                .padding([.leading, .trailing], 24)
+                .padding(.horizontal, 24)
                 .frame(width: 303, height: 60)
                 .background(Color.white)
                 .roundedCorner(15)
-                .padding([.top, .bottom], 40)
+                .padding(.bottom, 28)
+                .padding(.top, 15)
                 .frame(maxWidth: .infinity)
                 .background(Color.background.ignoresSafeArea())
                 .transition(transition)

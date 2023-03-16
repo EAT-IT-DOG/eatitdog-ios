@@ -15,6 +15,7 @@ struct SearchView: View {
 
     /// State Variables
     @State private var activated: Bool = false
+    @State private var opacity: CGFloat = 1
     @State private var selected: String = ""
     
     /// Local Variables
@@ -29,7 +30,7 @@ struct SearchView: View {
 
     var body: some View {
         
-        VStack(alignment: .trailing, spacing: 26) {
+        VStack(spacing: 25) {
             
             // MARK: - Category Selection
             ScrollView(.horizontal, showsIndicators: false) {
@@ -75,40 +76,58 @@ struct SearchView: View {
                 }
             }
             
-            // MARK: - Safeness
-            HStack(spacing: 7) {
-                ForEach(FoodSafeness.allCases, id: \.self) { type in
-                    VStack {
-                        Circle()
-                            .fill(type.toColor)
-                            .frame(width: 18, height: 18)
-                        Text(type.toName)
-                            .setFont(12)
-                            .foregroundColor(.general)
-                    }
-                }
-            }
-            .padding(.trailing, (screenWidth - 303) / 2)
-            .padding(.bottom, 2)
-            
-            // MARK: - Food Cards
-            ScrollView {
-                LazyVStack(spacing: 24) {
-                    ForEach(state.data, id: \.self) { data in
-                        VStack(spacing: 4) {
-                            Text(data.name)
-                                .setFont(24, .medium)
-                            Text("#\(data.type.toName)")
-                                .setFont(18)
+            ZStack(alignment: .topTrailing) {
+                GeometryReader { outsideProxy in
+                    
+                    // MARK: - Food Cards
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            GeometryReader { insideProxy in
+                                EmptyView()
+                                    .onChange(of: insideProxy.frame(in: .global).minY) { newValue in
+                                        let proxy = 1 - (outsideProxy.frame(in: .global).minY - newValue) / 100
+                                        if proxy > 0.6 {
+                                            opacity = proxy
+                                        }
+                                    }
+                            }
+                            LazyVStack(spacing: 24) {
+                                ForEach(state.data, id: \.self) { data in
+                                    VStack(spacing: 4) {
+                                        Text(data.name)
+                                            .setFont(24, .medium)
+                                        Text("#\(data.type.toName)")
+                                            .setFont(18)
+                                    }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    .foregroundColor(.white)
+                                    .background(data.safeness.toColor)
+                                    .frame(width: 303, height: 150)
+                                    .cornerRadius(15)
+                                    .transition(.move(edge: .bottom))
+                                }
+                            }
+                            .padding(.top, 58)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .foregroundColor(.white)
-                        .background(data.safeness.toColor)
-                        .frame(width: 303, height: 150)
-                        .cornerRadius(15)
-                        .transition(.move(edge: .bottom))
+                    }
+                    .frame(maxHeight: .infinity)
+                }
+                
+            // MARK: - Safeness
+                HStack(spacing: 7) {
+                    ForEach(FoodSafeness.allCases, id: \.self) { type in
+                        VStack {
+                            Circle()
+                                .fill(type.toColor)
+                                .frame(width: 18, height: 18)
+                            Text(type.toName)
+                                .setFont(12)
+                                .foregroundColor(.general)
+                        }
                     }
                 }
+                .padding(.trailing, (screenWidth - 303) / 2)
+                .opacity(opacity)
             }
         }
         .customBackground()
