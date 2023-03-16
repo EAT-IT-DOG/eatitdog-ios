@@ -29,7 +29,7 @@ struct SearchView: View {
 
     var body: some View {
         
-        ScrollView {
+        VStack(alignment: .trailing, spacing: 26) {
             
             // MARK: - Category Selection
             ScrollView(.horizontal, showsIndicators: false) {
@@ -75,26 +75,39 @@ struct SearchView: View {
                 }
             }
             
-            // MARK: - Food Cards
-            LazyVStack(spacing: 24) {
-                ForEach(state.data, id: \.self) { data in
-                    VStack(spacing: 4) {
-                        Text(data.name)
-                            .setFont(24, .medium)
-                        Text(data.type.toName)
-                            .setFont(18)
+            // MARK: - Safeness
+            HStack(spacing: 7) {
+                ForEach(FoodSafeness.allCases, id: \.self) { type in
+                    VStack {
+                        Circle()
+                            .fill(type.toColor)
+                            .frame(width: 18, height: 18)
+                        Text(type.toName)
+                            .setFont(12)
+                            .foregroundColor(.general)
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .foregroundColor(.white)
-                    .background({ () -> Color in
-                        switch data.safeness {
-                        case .safe: return .green
-                        case .normal: return .yellow
-                        case .dangerous: return .accentColor
+                }
+            }
+            .padding(.trailing, (screenWidth - 303) / 2)
+            .padding(.bottom, 2)
+            
+            // MARK: - Food Cards
+            ScrollView {
+                LazyVStack(spacing: 24) {
+                    ForEach(state.data, id: \.self) { data in
+                        VStack(spacing: 4) {
+                            Text(data.name)
+                                .setFont(24, .medium)
+                            Text("#\(data.type.toName)")
+                                .setFont(18)
                         }
-                    }())
-                    .frame(width: 303, height: 150)
-                    .cornerRadius(15)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .foregroundColor(.white)
+                        .background(data.safeness.toColor)
+                        .frame(width: 303, height: 150)
+                        .cornerRadius(15)
+                        .transition(.move(edge: .bottom))
+                    }
                 }
             }
         }
