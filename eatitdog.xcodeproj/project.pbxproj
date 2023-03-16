@@ -76,6 +76,7 @@
 			children = (
 				930F22CD29C18302005B194E /* Models */,
 				930F22CE29C1830A005B194E /* Views */,
+				93EDA4B129C32E1300B6FF96 /* States */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -93,7 +94,6 @@
 			children = (
 				930A47C528E56A7200391DA5 /* SearchView.swift */,
 				93EDA4AF29C3173800B6FF96 /* SearchCellView.swift */,
-				93D6494328EB22B4003CC35D /* SearchState.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -234,6 +234,14 @@
 				930A47CA28E56AA000391DA5 /* Profile */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		93EDA4B129C32E1300B6FF96 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				93D6494328EB22B4003CC35D /* SearchState.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 		93F631DB29C09C3200CBA643 /* Network */ = {
