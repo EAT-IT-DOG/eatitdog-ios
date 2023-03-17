@@ -46,7 +46,7 @@ struct MainView: View {
                 .padding(.top, 15)
                 .frame(maxWidth: .infinity)
                 .background(Color.background.ignoresSafeArea())
-                .transition(transition)
+                .transition(state.transition)
             }
             
             // MARK: - View Changer
@@ -59,7 +59,7 @@ struct MainView: View {
                 default: ProfileView()
                 }
             }
-            .transition(transition)
+            .transition(state.transition)
             
             // MARK: - Bottom Tab Bar
             HStack {
@@ -75,7 +75,7 @@ struct MainView: View {
                         }
                         Button(action: {
                             touch()
-                            transition = state.selectedView < idx ? .backslide : .slide
+                            state.transition = state.selectedView < idx ? .backslide : .slide
                             withAnimation(.easeInOut) {
                                 state.selectedView = idx
                             }

@@ -10,6 +10,23 @@ import SwiftUI
 // MARK: - View Extension
 extension View {
     
+//    let message: String
+//    let buttonMessage: String
+//    @Binding var isPresented: Bool
+//    var cancelButton: Bool = false
+//    let action: () -> Void
+//    let content: Content
+    
+    @ViewBuilder func alertSheet(_ message: String,
+                                 _ buttonMessage: String,
+                                 isPresented: Binding<Bool>,
+                                 action: @escaping () -> Void,
+                                 cancelButton: Bool) -> some View {
+        AlertSheet(message, buttonMessage, isPresented: isPresented, action: action, cancelButton: cancelButton) {
+            self
+        }
+    }
+    
     @ViewBuilder func setFont(_ size: CGFloat, _ weight: Font.Weight = .regular) -> some View {
         self
             .font(.system(size: size, weight: weight))
