@@ -24,47 +24,55 @@ struct SearchView: View {
         VStack(spacing: 25) {
             
             // MARK: - Category Selection
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 18) {
-                    ForEach(FoodType.allCases, id: \.self) { row in
-                        Button(action: {
-                            touch()
-                            withAnimation(.default) {
-                                if mainState.selectedFilter == row {
-                                    mainState.selectedFilter = nil
-                                } else {
-                                    mainState.selectedFilter = row
-                                    if state.selected?.type != mainState.selectedFilter {
-                                        state.selected = nil
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 18) {
+                        ForEach(FoodType.allCases, id: \.self) { row in
+                            Button(action: {
+                                touch()
+                                withAnimation(.default) {
+                                    if mainState.selectedFilter == row {
+                                        mainState.selectedFilter = nil
+                                    } else {
+                                        mainState.selectedFilter = row
+                                        if state.selected?.type != mainState.selectedFilter {
+                                            state.selected = nil
+                                        }
                                     }
                                 }
-                            }
-                        }) {
-                            Text(row.toName)
-                                .setFont(14, .medium)
-                                .padding([.leading, .trailing], 25)
-                                .frame(height: 34)
-                                .foregroundColor(mainState.selectedFilter == row ? row.toColor : .white)
-                                .if(mainState.selectedFilter != row) {
-                                    $0.background(row.toColor)
+                            }) {
+                                Text(row.toName)
+                                    .setFont(14, .medium)
+                                    .padding([.leading, .trailing], 25)
+                                    .frame(height: 34)
+                                    .foregroundColor(mainState.selectedFilter == row ? row.toColor : .white)
+                                    .if(mainState.selectedFilter != row) {
+                                        $0.background(row.toColor)
                                         //.transition(.scale)
-                                }
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .strokeBorder(row.toColor, lineWidth: 1)
-                                )
-                                .roundedCorner(15)
+                                    }
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .strokeBorder(row.toColor, lineWidth: 1)
+                                    )
+                                    .roundedCorner(15)
+                            }
+                            .buttonStyle(ScaleButtonStyle())
+                            .id(row)
                         }
-                        .buttonStyle(ScaleButtonStyle())
+                    }
+                    .padding([.leading, .trailing],
+                             state.activated ? (screenWidth - 303) / 2 : screenWidth + 100)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            withAnimation(.easeInOut) {
+                                state.activated.toggle()
+                            }
+                        }
                     }
                 }
-                .padding([.leading, .trailing],
-                         state.activated ? (screenWidth - 303) / 2 : screenWidth + 100)
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        withAnimation(.easeInOut) {
-                            state.activated.toggle()
-                        }
+                .onChange(of: mainState.selectedFilter) { newValue in
+                    withAnimation(.easeInOut) {
+                        proxy.scrollTo(newValue, anchor: .center)
                     }
                 }
             }
@@ -126,5 +134,8 @@ struct SearchView: View {
         }
         .customBackground()
         .onAppear(perform: state.fetch)
+        .onDisappear {
+            mainState.selectedFilter = nil
+        }
     }
 }

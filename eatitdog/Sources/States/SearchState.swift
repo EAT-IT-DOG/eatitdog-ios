@@ -19,8 +19,10 @@ class SearchState: ObservableObject {
                          params: ["page": 1, "size": 10],
                          [Food].self)
         { data in
-            withAnimation(.easeInOut) {
-                self.data += data
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                withAnimation(.easeInOut) {
+                    self.data += data
+                }
             }
         }
     }

@@ -47,9 +47,13 @@ struct HomeView: View {
                         HStack(spacing: 0) {
                             ForEach(line, id: \.self) { row in
                                 Button(action: {
+                                    mainState.transition = .slide
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                        withAnimation(.easeInOut) {
+                                            mainState.selectedFilter = row
+                                        }
+                                    }
                                     withAnimation(.easeInOut) {
-                                        mainState.selectedFilter = row
-                                        mainState.transition = .slide
                                         mainState.selectedView = 1
                                     }
                                     touch()
