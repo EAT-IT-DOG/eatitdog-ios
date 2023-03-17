@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - Search View
 struct SearchView: View {
     
-    /// Model
+    /// State
     @StateObject private var state = SearchState()
     
     /// Local Variables

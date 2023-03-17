@@ -1,5 +1,5 @@
 //
-//  OfferModel.swift
+//  OfferState.swift
 //  eatitdog
 //
 //  Created by Mercen on 2023/03/15.
@@ -7,7 +7,7 @@
 
 import Combine
 
-class OfferModel: ObservableObject {
+class OfferState: ObservableObject {
     
     @Published var foodName: String = ""
     @Published var isDangerous: Bool? = nil

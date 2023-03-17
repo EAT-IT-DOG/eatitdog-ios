@@ -9,12 +9,6 @@ import SwiftUI
 
 // MARK: - Home View
 struct HomeView: View {
-
-    /// Static Variables
-    private let category: [[String]] = [["유제품", "간식", "육류"],
-                                        ["채소", "인스턴트", "해산물"],
-                                        ["음료", "조미료", "과일"]]
-    
     var body: some View {
         ScrollView(showsIndicators: false) {
             
@@ -26,7 +20,7 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.top, 30)
-                        .setFont(16)
+                        .setFont(18, .medium)
                     Image("Girl")
                         .resizable()
                         .scaledToFit()
@@ -41,20 +35,24 @@ struct HomeView: View {
                 
                 // MARK: - Category Plate
                 VStack(spacing: 0) {
-                    ForEach(category, id: \.self) { line in
+                    ForEach([
+                        [FoodType.milkProduct, .snack, .meat],
+                        [.vegetable, .junkfood, .seafood],
+                        [.drink, .seasoning, .fruit]
+                    ], id: \.self) { line in
                         HStack(spacing: 0) {
                             ForEach(line, id: \.self) { row in
                                 Button(action: {
                                     touch()
                                 }) {
                                     VStack(spacing: 13) {
-                                        Image(row)
+                                        Image(row.toName)
                                             .resizable()
                                             .frame(width: 24, height: 24)
-                                            .if(row == "유제품") {
+                                            .if(row.toName == "유제품") {
                                                 $0.padding(.leading, 8)
                                             }
-                                        Text(row)
+                                        Text(row.toName)
                                             .foregroundColor(.basics)
                                             .setFont(16)
                                     }

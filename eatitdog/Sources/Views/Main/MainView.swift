@@ -13,19 +13,17 @@ struct MainView: View {
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     @Namespace private var animation
     
-    /// State Variables
-    @State private var selectedView: Int = 2
-    @State private var transition: AnyTransition = .slide
-    @State private var searchText: String = ""
-    
+    /// State
+    @StateObject var state = MainState()
+
     var body: some View {
         VStack(spacing: 0) {
             
             // MARK: - Search Bar
-            if selectedView != 0 {
+            if state.selectedView != 0 {
                 HStack(spacing: 0) {
-                    TextField("", text: $searchText)
-                        .placeholder("음식 이름을 입력하세요", when: searchText.isEmpty)
+                    TextField("", text: $state.searchText)
+                        .placeholder("음식 이름을 입력하세요", when: state.searchText.isEmpty)
                         .foregroundColor(.basics)
                         .setFont(16)
                     Spacer()
@@ -53,7 +51,7 @@ struct MainView: View {
             
             // MARK: - View Changer
             Group {
-                switch selectedView {
+                switch state.selectedView {
                 case 0: LoginView()
                 case 1: SearchView()
                 case 2: HomeView()
@@ -68,7 +66,7 @@ struct MainView: View {
                 Spacer()
                 ForEach(0..<5) { idx in
                     ZStack {
-                        if selectedView == idx {
+                        if state.selectedView == idx {
                             Rectangle()
                                 .fill(Color.accentColor)
                                 .frame(width: 20, height: 4)
@@ -77,17 +75,17 @@ struct MainView: View {
                         }
                         Button(action: {
                             touch()
-                            transition = selectedView < idx ? .backslide : .slide
+                            transition = state.selectedView < idx ? .backslide : .slide
                             withAnimation(.easeInOut) {
-                                selectedView = idx
+                                state.selectedView = idx
                             }
                         }) {
                             Image(["Logout", "Search", "Home", "Offer", "Profile"][idx])
                                 .renderingMode(.template)
                                 .resizable()
-                                .foregroundColor(selectedView == idx ? .white : .basics)
+                                .foregroundColor(state.selectedView == idx ? .white : .basics)
                                 .frame(width: 30, height: 30)
-                                .if(selectedView == idx) { $0.background(
+                                .if(state.selectedView == idx) { $0.background(
                                     RoundedRectangle(cornerRadius: 17)
                                         .fill(Color.accentColor)
                                         .frame(width: 47, height: 47)

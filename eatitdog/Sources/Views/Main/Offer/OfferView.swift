@@ -22,17 +22,12 @@ struct TitleText: View {
 // MARK: - Offer View
 struct OfferView: View {
     
-    /// Model
-    @StateObject var model = OfferModel()
+    /// State
+    @StateObject var state = OfferState()
     
     /// State Variables
     @State private var dangerous: String = ""
     @State private var selected: String = ""
-    
-    /// Static Variables
-    private let category: [[String]] = [["유제품", "채소", "음료"],
-                                        ["간식", "인스턴트", "조미료"],
-                                        ["육류", "과일", "해산물"]]
     
     var body: some View {
         ScrollView {
@@ -44,7 +39,7 @@ struct OfferView: View {
                     .foregroundColor(.basics)
                 
                 TitleText(text: "음식 이름")
-                CustomTextField("음식 이름을 입력하세요", text: $model.foodName)
+                CustomTextField("음식 이름을 입력하세요", text: $state.foodName)
                 
                 // MARK: - Danger Alert
                 TitleText(text: "강아지에게 위험하나요?")
@@ -57,13 +52,17 @@ struct OfferView: View {
                 // MARK: - Food Category
                 TitleText(text: "음식 종류", type: true)
                 HStack(spacing: 0) {
-                    ForEach(category, id: \.self) { row in
+                    ForEach([
+                        [FoodType.milkProduct, .vegetable, .drink],
+                        [.snack, .junkfood, .fruit],
+                        [.meat, .seasoning, .seafood]
+                    ], id: \.self) { row in
                         VStack(alignment: .leading, spacing: 14) {
                             ForEach(row, id: \.self) { line in
-                                RadioButton(pin: $selected, tag: line)
+                                RadioButton(pin: $selected, tag: line.toName)
                             }
                         }
-                        if row != category.last {
+                        if row[2] != .seafood {
                             Spacer()
                         }
                     }
