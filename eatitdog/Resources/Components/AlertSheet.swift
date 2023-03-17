@@ -53,9 +53,12 @@ struct AlertSheet<Content: View>: View {
                                     .setFont(14)
                                     .frame(height: 36)
                                     .frame(maxWidth: .infinity)
+                                    .background(Color.white.opacity(0.01))
+                                    .cornerRadius(8)
                                     .overlay(RoundedRectangle(cornerRadius: 8)
                                         .strokeBorder(.foreground, lineWidth: 1))
                             }
+                            .buttonStyle(ScaleButtonStyle())
                             .foregroundColor(.soft)
                         }
                         Button(action: action) {
@@ -63,9 +66,13 @@ struct AlertSheet<Content: View>: View {
                                 .setFont(14)
                                 .frame(height: 36)
                                 .frame(maxWidth: .infinity)
+                                .background(Color.white.opacity(0.01))
+                                .cornerRadius(8)
                                 .overlay(RoundedRectangle(cornerRadius: 8)
                                     .strokeBorder(.foreground, lineWidth: 1))
                         }
+                        .buttonStyle(ScaleButtonStyle())
+                        .foregroundColor(.accentColor)
                     }
                     .frame(width: 255)
                 }
@@ -73,6 +80,7 @@ struct AlertSheet<Content: View>: View {
                 .background(Color.white)
                 .cornerRadius(15)
                 .transition(.scale.combined(with: .opacity))
+                .zIndex(1)
             }
         }
     }

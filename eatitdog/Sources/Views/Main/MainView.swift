@@ -75,9 +75,15 @@ struct MainView: View {
                         }
                         Button(action: {
                             touch()
-                            state.transition = state.selectedView < idx ? .backslide : .slide
-                            withAnimation(.easeInOut) {
-                                state.selectedView = idx
+                            if idx == 0 {
+                                withAnimation(.easeInOut) {
+                                    state.logoutClicked.toggle()
+                                }
+                            } else {
+                                state.transition = state.selectedView < idx ? .backslide : .slide
+                                withAnimation(.easeInOut) {
+                                    state.selectedView = idx
+                                }
                             }
                         }) {
                             Image(["Logout", "Search", "Home", "Offer", "Profile"][idx])
@@ -102,6 +108,11 @@ struct MainView: View {
         .onTapGesture {
             endTextEditing()
         }
+        .alertSheet("로그아웃 하시겠습니까?", "로그아웃",
+                    isPresented: $state.logoutClicked,
+                    action: {
+            
+        }, cancelButton: true)
     }
 }
 
