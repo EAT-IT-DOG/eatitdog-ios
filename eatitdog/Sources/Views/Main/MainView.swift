@@ -60,6 +60,7 @@ struct MainView: View {
                 }
             }
             .transition(state.transition)
+            .environmentObject(state)
             
             // MARK: - Bottom Tab Bar
             HStack {

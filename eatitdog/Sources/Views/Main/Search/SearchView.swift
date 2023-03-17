@@ -12,6 +12,7 @@ struct SearchView: View {
     
     /// State
     @StateObject private var state = SearchState()
+    @EnvironmentObject private var mainState: MainState
     
     /// Local Variables
     private var screenWidth: CGFloat {
@@ -29,11 +30,11 @@ struct SearchView: View {
                         Button(action: {
                             touch()
                             withAnimation(.default) {
-                                if state.selectedFilter == row {
-                                    state.selectedFilter = nil
+                                if mainState.selectedFilter == row {
+                                    mainState.selectedFilter = nil
                                 } else {
-                                    state.selectedFilter = row
-                                    if state.selected?.type != state.selectedFilter {
+                                    mainState.selectedFilter = row
+                                    if state.selected?.type != mainState.selectedFilter {
                                         state.selected = nil
                                     }
                                 }
@@ -43,8 +44,8 @@ struct SearchView: View {
                                 .setFont(14, .medium)
                                 .padding([.leading, .trailing], 25)
                                 .frame(height: 34)
-                                .foregroundColor(state.selectedFilter == row ? row.toColor : .white)
-                                .if(state.selectedFilter != row) {
+                                .foregroundColor(mainState.selectedFilter == row ? row.toColor : .white)
+                                .if(mainState.selectedFilter != row) {
                                     $0.background(row.toColor)
                                         //.transition(.scale)
                                 }
@@ -83,7 +84,7 @@ struct SearchView: View {
                                 }
                                 LazyVStack(spacing: 24) {
                                     ForEach(state.data, id: \.self) { data in
-                                        if [nil, data.type].contains(state.selectedFilter) {
+                                        if [nil, data.type].contains(mainState.selectedFilter) {
                                             SearchCellView(selected: $state.selected, data: data)
                                         }
                                     }

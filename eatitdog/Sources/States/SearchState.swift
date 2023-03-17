@@ -12,7 +12,6 @@ class SearchState: ObservableObject {
     @Published var data: [Food] = []
     @Published var activated: Bool = false
     @Published var opacity: CGFloat = 1
-    @Published var selectedFilter: FoodType?
     @Published var selected: Food?
     
     func fetch() {

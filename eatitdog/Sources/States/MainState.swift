@@ -13,5 +13,6 @@ class MainState: ObservableObject {
     @Published var transition: AnyTransition = .slide
     @Published var searchText: String = ""
     @Published var logoutClicked: Bool = false
+    @Published var selectedFilter: FoodType?
     
 }

@@ -9,6 +9,10 @@ import SwiftUI
 
 // MARK: - Home View
 struct HomeView: View {
+    
+    /// State
+    @EnvironmentObject private var mainState: MainState
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             
@@ -43,6 +47,11 @@ struct HomeView: View {
                         HStack(spacing: 0) {
                             ForEach(line, id: \.self) { row in
                                 Button(action: {
+                                    withAnimation(.easeInOut) {
+                                        mainState.selectedFilter = row
+                                        mainState.transition = .slide
+                                        mainState.selectedView = 1
+                                    }
                                     touch()
                                 }) {
                                     VStack(spacing: 13) {
