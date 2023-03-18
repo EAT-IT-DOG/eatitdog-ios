@@ -82,34 +82,60 @@ struct SearchView: View {
                     
                     // MARK: - Food Cards
                     ScrollViewReader { value in
-                        ScrollView {
-                            VStack(spacing: 0) {
-                                GeometryReader { insideProxy in
-                                    EmptyView()
-                                        .onChange(of: insideProxy.frame(in: .global).minY) { newValue in
-                                            state.opacity = 1 - (outsideProxy.frame(in: .global).minY - newValue) / 100
-                                        }
+                        if mainState.selectedFilter != nil &&
+                            state.data.filter { $0.type == mainState.selectedFilter }.isEmpty
+                        {
+                            VStack(spacing: 24) {
+                                Text("검색하신 음식이 없습니다")
+                                    .setFont(20)
+                                    .foregroundColor(.basics)
+                                Button(action: {
+                                    mainState.transition = .backslide
+                                    withAnimation(.easeInOut) {
+                                        mainState.selectedView = 3
+                                    }
+                                    touch()
+                                }) {
+                                    Text("제안하러 가기")
+                                        .setFont(18)
+                                        .foregroundColor(.white)
+                                        .frame(width: 160, height: 50)
+                                        .background(Color.accentColor)
+                                        .cornerRadius(8)
                                 }
-                                LazyVStack(spacing: 24) {
-                                    ForEach(state.data, id: \.self) { data in
-                                        if [nil, data.type].contains(mainState.selectedFilter) {
-                                            SearchCellView(selected: $state.selected, data: data)
+                                .buttonStyle(ScaleButtonStyle())
+                            }
+                            .transition(.scale.combined(with: .opacity))
+                        } else {
+                            ScrollView {
+                                VStack(spacing: 0) {
+                                    GeometryReader { insideProxy in
+                                        EmptyView()
+                                            .onChange(of: insideProxy.frame(in: .global).minY) { newValue in
+                                                state.opacity = 1 - (outsideProxy.frame(in: .global).minY - newValue) / 100
+                                            }
+                                    }
+                                    LazyVStack(spacing: 24) {
+                                        ForEach(state.data, id: \.self) { data in
+                                            if [nil, data.type].contains(mainState.selectedFilter) {
+                                                SearchCellView(selected: $state.selected, data: data)
+                                            }
                                         }
                                     }
+                                    .padding(.top, 58)
+                                    .padding(.bottom, 28)
                                 }
-                                .padding(.top, 58)
-                                .padding(.bottom, 28)
                             }
-                        }
-                        .onChange(of: state.selected) { newValue in
-                            if let toValue = newValue {
-                                withAnimation(.easeInOut) {
-                                    value.scrollTo(toValue.id, anchor: .top)
+                            .onChange(of: state.selected) { newValue in
+                                if let toValue = newValue {
+                                    withAnimation(.easeInOut) {
+                                        value.scrollTo(toValue.id, anchor: .top)
+                                    }
                                 }
                             }
                         }
                     }
-                    .frame(maxHeight: .infinity)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 
                 // MARK: - Safeness
