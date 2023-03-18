@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextContainer: View {
+fileprivate struct TextContainer: View {
     
     let head: String
     let text: String
@@ -20,11 +20,9 @@ struct TextContainer: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(head)
-                .minimumScaleFactor(1.0)
                 .setFont(14, .medium)
                 .foregroundColor(.basics)
             Text(text)
-                .minimumScaleFactor(1.0)
                 .setFont(16)
                 .foregroundColor(.body)
         }
@@ -54,6 +52,7 @@ struct SearchCellView: View {
                         Text(data.name)
                             .setFont(24, .medium)
                             .foregroundColor(.basics)
+                            .matchedGeometryEffect(id: "n\(data.id)", in: animation)
                             .setAlignment(.leading)
                     }
                     TextContainer("섭취 가능 여부", data.safeness.toSentence)
@@ -83,10 +82,10 @@ struct SearchCellView: View {
                 }
                 .padding(24)
                 .frame(width: 303)
-                .background(Color.white)
+                .background(Color.white
+                    .matchedGeometryEffect(id: "c\(data.id)", in: animation))
                 .cornerRadius(15)
                 .transition(.opacity)
-                .matchedGeometryEffect(id: "a\(data.id)", in: animation)
             } else {
                 Button(action: {
                     withAnimation(.easeInOut) {
@@ -97,16 +96,17 @@ struct SearchCellView: View {
                     VStack(spacing: 4) {
                         Text(data.name)
                             .setFont(24, .medium)
+                            .matchedGeometryEffect(id: "n\(data.id)", in: animation)
                         Text("#\(data.type.toName)")
                             .setFont(18)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
-                    .background(data.safeness.toColor)
                     .frame(width: 303, height: 150)
+                    .background(data.safeness.toColor
+                        .matchedGeometryEffect(id: "c\(data.id)", in: animation))
                     .cornerRadius(15)
                     .transition(.opacity)
-                    .matchedGeometryEffect(id: "a\(data.id)", in: animation)
                 }
                 .buttonStyle(ScaleButtonStyle())
             }

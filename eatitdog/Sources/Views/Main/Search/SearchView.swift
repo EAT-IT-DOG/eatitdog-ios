@@ -82,7 +82,7 @@ struct SearchView: View {
                     
                     // MARK: - Food Cards
                     ScrollViewReader { value in
-                        if mainState.selectedFilter != nil &&
+                        if state.pagingEnded && mainState.selectedFilter != nil &&
                             state.data.filter { $0.type == mainState.selectedFilter }.isEmpty
                         {
                             VStack(spacing: 24) {
@@ -121,9 +121,11 @@ struct SearchView: View {
                                                 SearchCellView(selected: $state.selected, data: data)
                                             }
                                         }
+                                        Color.background.frame(height: 4)
+                                            .onAppear(perform: state.fetch)
+                                            .zIndex(-1)
                                     }
                                     .padding(.top, 58)
-                                    .padding(.bottom, 28)
                                 }
                             }
                             .onChange(of: state.selected) { newValue in
@@ -159,7 +161,6 @@ struct SearchView: View {
             }
         }
         .customBackground()
-        .onAppear(perform: state.fetch)
         .onDisappear {
             mainState.selectedFilter = nil
         }
