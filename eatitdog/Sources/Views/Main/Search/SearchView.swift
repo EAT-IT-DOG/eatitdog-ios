@@ -90,10 +90,13 @@ struct SearchView: View {
                                     .setFont(20)
                                     .foregroundColor(.basics)
                                 Button(action: {
-                                    mainState.transition = .backslide
                                     withAnimation(.easeInOut) {
-                                        mainState.selectedView = 3
+                                        mainState.logoutClicked = true
                                     }
+//                                    mainState.transition = .backslide
+//                                    withAnimation(.easeInOut) {
+//                                        mainState.selectedView = 3
+//                                    }
                                     touch()
                                 }) {
                                     Text("제안하러 가기")

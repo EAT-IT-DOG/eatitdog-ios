@@ -76,7 +76,7 @@ struct MainView: View {
                         }
                         Button(action: {
                             touch()
-                            if idx == 0 {
+                            if [0, 3, 4].contains(idx) {
                                 withAnimation(.easeInOut) {
                                     state.logoutClicked.toggle()
                                 }
@@ -109,11 +109,13 @@ struct MainView: View {
         .onTapGesture {
             endTextEditing()
         }
-        .alertSheet("로그아웃 하시겠습니까?", "로그아웃",
+        .alertSheet("현재는 지원하지 않는 기능입니다", "확인",
                     isPresented: $state.logoutClicked,
                     action: {
-            
-        }, cancelButton: true)
+            withAnimation(.easeInOut) {
+                state.logoutClicked = false
+            }
+        }, cancelButton: false)
     }
 }
 

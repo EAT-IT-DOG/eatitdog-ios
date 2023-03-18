@@ -52,7 +52,6 @@ struct SearchCellView: View {
                         Text(data.name)
                             .setFont(24, .medium)
                             .foregroundColor(.basics)
-                            .matchedGeometryEffect(id: "n\(data.id)", in: animation)
                             .setAlignment(.leading)
                     }
                     TextContainer("섭취 가능 여부", data.safeness.toSentence)
@@ -96,7 +95,6 @@ struct SearchCellView: View {
                     VStack(spacing: 4) {
                         Text(data.name)
                             .setFont(24, .medium)
-                            .matchedGeometryEffect(id: "n\(data.id)", in: animation)
                         Text("#\(data.type.toName)")
                             .setFont(18)
                     }

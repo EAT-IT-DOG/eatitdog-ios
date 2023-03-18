@@ -61,7 +61,10 @@ struct AlertSheet<Content: View>: View {
                             .buttonStyle(ScaleButtonStyle())
                             .foregroundColor(.soft)
                         }
-                        Button(action: action) {
+                        Button(action: {
+                            action()
+                            touch()
+                        }) {
                             Text(buttonMessage)
                                 .setFont(14)
                                 .frame(height: 36)
