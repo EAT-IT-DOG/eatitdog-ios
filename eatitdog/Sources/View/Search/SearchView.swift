@@ -126,29 +126,19 @@ struct SearchView: View {
                                     GeometryReader { insideProxy in
                                         EmptyView()
                                             .onChange(of: insideProxy.frame(in: .global).minY) { newValue in
-                                                let axis = outsideProxy.frame(in: .global).minY - newValue
-                                                state.opacity = 1 - axis / 100
-                                                if let lastAxis = state.lastAxis {
-                                                    if axis - 700 > lastAxis || axis + 100 < lastAxis {
-                                                        withAnimation(.easeInOut) {
-                                                            state.selected = nil
-                                                            state.lastAxis = nil
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                            .onChange(of: state.selected) { newValue in
-                                                state.lastAxis = outsideProxy.frame(in: .global).minY - insideProxy.frame(in: .global).minY
-                                                if let toValue = newValue {
-                                                    withAnimation(.easeInOut) {
-                                                        value.scrollTo(toValue.id, anchor: .top)
-                                                    }
-                                                }
+                                                state.opacity = 1 - (outsideProxy.frame(in: .global).minY - newValue) / 100
                                             }
                                     }
                                     LazyVStack(spacing: 24) {
                                         ForEach(state.data, id: \.self) { data in
                                             SearchCellView(selected: $state.selected, data: data)
+                                                .onDisappear {
+                                                    if state.selected == data {
+                                                        withAnimation(.easeInOut) {
+                                                            state.selected = nil
+                                                        }
+                                                    }
+                                                }
                                         }
                                         Color.background.frame(height: 4)
                                             .onAppear(perform: {
@@ -159,6 +149,13 @@ struct SearchView: View {
                                             .zIndex(-1)
                                     }
                                     .padding(.top, 58)
+                                }
+                            }
+                            .onChange(of: state.selected) { newValue in
+                                if let toValue = newValue {
+                                    withAnimation(.easeInOut) {
+                                        value.scrollTo(toValue.id, anchor: .top)
+                                    }
                                 }
                             }
                         }
@@ -183,6 +180,7 @@ struct SearchView: View {
                     .transition(.opacity)
                     .padding(.trailing, (screenWidth - 303) / 2)
                     .opacity(state.opacity > 0.6 ? state.opacity : 0.6)
+                    .zIndex(1)
                 }
             }
         }
