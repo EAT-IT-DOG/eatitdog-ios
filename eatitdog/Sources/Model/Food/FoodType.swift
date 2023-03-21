@@ -12,7 +12,7 @@ enum FoodType: String, Codable, CaseIterable {
     case snack = "SNACK"
     case meat = "MEAT"
     case vegetable = "VEGETABLE"
-    case junkfood = "JUNKFOOD"
+    case junkfood = "JUNK_FOOD"
     case seafood = "SEAFOOD"
     case drink = "DRINK"
     case seasoning = "SEASONING"

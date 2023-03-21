@@ -17,14 +17,34 @@ class SearchState: ObservableObject {
     @Published var page: Int = 0
     @Published var pagingEnded: Bool = false
     
-    func fetch() {
+    func reset() {
+        self.page = 0
+        withAnimation(.easeInOut) {
+            self.pagingEnded = false
+            self.selected = nil
+            self.data = []
+        }
+    }
+    
+    func fetch(_ filter: FoodType?, _ keyword: String) {
         if !pagingEnded {
-            Requests.request("food", .get,
-                             params: ["page": page, "size": 10],
+            
+            var params: [String: Any] = ["page": page, "size": 10]
+            
+            if let filter { params["type"] = filter.rawValue }
+            if !keyword.isEmpty { params["keyword"] = keyword }
+            
+            print(params)
+            print("food\(params.count != 2 ? "/search" : "")")
+            
+            Requests.request("food\(params.count != 2 ? "/search" : "")", .get,
+                             params: params,
                              [Food].self)
             { data in
                 if data.isEmpty {
-                    self.pagingEnded = true
+                    withAnimation(.easeInOut) {
+                        self.pagingEnded = true
+                    }
                 } else {
                     self.page += 1
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

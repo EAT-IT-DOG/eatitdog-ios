@@ -18,6 +18,10 @@ struct SearchView: View {
     private var screenWidth: CGFloat {
         return UIScreen.main.bounds.size.width
     }
+    
+    func fetch() {
+        state.fetch(mainState.selectedFilter, mainState.searchText)
+    }
 
     var body: some View {
         
@@ -30,6 +34,7 @@ struct SearchView: View {
                         ForEach(FoodType.allCases, id: \.self) { row in
                             Button(action: {
                                 touch()
+                                state.reset()
                                 withAnimation(.default) {
                                     if mainState.selectedFilter == row {
                                         mainState.selectedFilter = nil
@@ -40,6 +45,7 @@ struct SearchView: View {
                                         }
                                     }
                                 }
+                                fetch()
                             }) {
                                 Text(row.toName)
                                     .setFont(14, .medium)
@@ -82,8 +88,7 @@ struct SearchView: View {
                     
                     // MARK: - Food Cards
                     ScrollViewReader { value in
-                        if state.pagingEnded && mainState.selectedFilter != nil &&
-                            state.data.filter { $0.type == mainState.selectedFilter }.isEmpty
+                        if state.pagingEnded && mainState.selectedFilter != nil && state.data.isEmpty
                         {
                             VStack(spacing: 24) {
                                 Text("검색하신 음식이 없습니다")
@@ -120,12 +125,14 @@ struct SearchView: View {
                                     }
                                     LazyVStack(spacing: 24) {
                                         ForEach(state.data, id: \.self) { data in
-                                            if [nil, data.type].contains(mainState.selectedFilter) {
-                                                SearchCellView(selected: $state.selected, data: data)
-                                            }
+                                            SearchCellView(selected: $state.selected, data: data)
                                         }
                                         Color.background.frame(height: 4)
-                                            .onAppear(perform: state.fetch)
+                                            .onAppear(perform: {
+                                                if state.page != 0 {
+                                                    fetch()
+                                                }
+                                            })
                                             .zIndex(-1)
                                     }
                                     .padding(.top, 58)
@@ -164,6 +171,11 @@ struct SearchView: View {
             }
         }
         .customBackground()
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                fetch()
+            }
+        }
         .onDisappear {
             mainState.selectedFilter = nil
         }
