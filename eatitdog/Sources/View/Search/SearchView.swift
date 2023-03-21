@@ -76,6 +76,12 @@ struct SearchView: View {
                         }
                     }
                 }
+                .onChange(of: mainState.searchTrigger) { newValue in
+                    if newValue {
+                        state.reset()
+                        fetch()
+                    }
+                }
                 .onChange(of: mainState.selectedFilter) { newValue in
                     withAnimation(.easeInOut) {
                         proxy.scrollTo(newValue, anchor: .center)
@@ -178,6 +184,10 @@ struct SearchView: View {
         }
         .onDisappear {
             mainState.selectedFilter = nil
+            withAnimation(.easeInOut) {
+                mainState.searchStatus = false
+                mainState.searchText = ""
+            }
         }
     }
 }

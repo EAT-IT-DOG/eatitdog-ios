@@ -15,27 +15,30 @@ struct MainView: View {
     
     /// State
     @StateObject var state = MainState()
-
+    
     var body: some View {
         VStack(spacing: 0) {
             
             // MARK: - Search Bar
             if state.selectedView != 0 {
                 HStack(spacing: 0) {
-                    TextField("", text: $state.searchText, onCommit: state.search)
+                    TextField("", text: $state.searchText, onCommit: state.triggerSearch)
                         .placeholder("음식 이름을 입력하세요", when: state.searchText.isEmpty)
+                        .disabled(state.searchStatus)
                         .foregroundColor(.basics)
                         .setFont(16)
                     Spacer()
                     Button(action: {
                         touch()
-                        state.search()
+                        state.triggerSearch()
+                        endTextEditing()
                     }) {
-                        Image("MiniSearch")
+                        Image(state.searchStatus ? "Xmark" : "MiniSearch")
                             .renderingMode(.template)
                             .resizable()
                             .foregroundColor(.basics)
                             .frame(width: 28, height: 28)
+                            .rotationEffect(.degrees(state.searchStatus ? -90 : 0))
                     }
                     .buttonStyle(ScaleButtonStyle())
                 }
