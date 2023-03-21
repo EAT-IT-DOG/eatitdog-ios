@@ -113,7 +113,7 @@ struct SearchView: View {
                                 }
                                 .buttonStyle(ScaleButtonStyle())
                             }
-                            .transition(.scale.combined(with: .opacity))
+                            .transition(.opacity)
                         } else {
                             ScrollView {
                                 VStack(spacing: 0) {

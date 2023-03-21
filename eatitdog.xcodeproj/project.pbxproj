@@ -33,7 +33,7 @@
 		93F631DF29C0A2D300CBA643 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F631DE29C0A2D300CBA643 /* Request.swift */; };
 		93F631E229C0A2E300CBA643 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 93F631E129C0A2E300CBA643 /* Alamofire */; };
 		93F631E429C13B7200CBA643 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F631E329C13B7200CBA643 /* TextField.swift */; };
-		93F631E629C13C7100CBA643 /* OfferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F631E529C13C7100CBA643 /* OfferModel.swift */; };
+		93F631E629C13C7100CBA643 /* OfferState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F631E529C13C7100CBA643 /* OfferState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,7 @@
 		93F631DC29C0A2B700CBA643 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		93F631DE29C0A2D300CBA643 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		93F631E329C13B7200CBA643 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		93F631E529C13C7100CBA643 /* OfferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferModel.swift; sourceTree = "<group>"; };
+		93F631E529C13C7100CBA643 /* OfferState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,7 +273,7 @@
 		93EDA4E829C7DC0D00B6FF96 /* Offer */ = {
 			isa = PBXGroup;
 			children = (
-				93F631E529C13C7100CBA643 /* OfferModel.swift */,
+				93F631E529C13C7100CBA643 /* OfferState.swift */,
 			);
 			path = Offer;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 				930A47C328E569A600391DA5 /* HomeView.swift in Sources */,
 				93EDA4ED29C7F34900B6FF96 /* FoodType.swift in Sources */,
 				93EDA4B329C32E8800B6FF96 /* FoodModel.swift in Sources */,
-				93F631E629C13C7100CBA643 /* OfferModel.swift in Sources */,
+				93F631E629C13C7100CBA643 /* OfferState.swift in Sources */,
 				93619D4128E6633900CAE586 /* LoginView.swift in Sources */,
 				93EDA4B029C3173800B6FF96 /* SearchCellView.swift in Sources */,
 				930A47C628E56A7200391DA5 /* SearchView.swift in Sources */,

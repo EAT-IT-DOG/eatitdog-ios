@@ -22,13 +22,14 @@ struct MainView: View {
             // MARK: - Search Bar
             if state.selectedView != 0 {
                 HStack(spacing: 0) {
-                    TextField("", text: $state.searchText)
+                    TextField("", text: $state.searchText, onCommit: state.search)
                         .placeholder("음식 이름을 입력하세요", when: state.searchText.isEmpty)
                         .foregroundColor(.basics)
                         .setFont(16)
                     Spacer()
                     Button(action: {
                         touch()
+                        state.search()
                     }) {
                         Image("MiniSearch")
                             .renderingMode(.template)

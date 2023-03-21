@@ -34,9 +34,6 @@ class SearchState: ObservableObject {
             if let filter { params["type"] = filter.rawValue }
             if !keyword.isEmpty { params["keyword"] = keyword }
             
-            print(params)
-            print("food\(params.count != 2 ? "/search" : "")")
-            
             Requests.request("food\(params.count != 2 ? "/search" : "")", .get,
                              params: params,
                              [Food].self)

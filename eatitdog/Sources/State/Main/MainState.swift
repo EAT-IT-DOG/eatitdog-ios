@@ -18,4 +18,12 @@ class MainState: ObservableObject {
     @Published var logoutClicked: Bool = false
     @Published var selectedFilter: FoodType?
     
+    func search() {
+        if !self.searchText.isEmpty {
+            self.transition = .slide
+            withAnimation(.easeInOut) {
+                self.selectedView = 1
+            }
+        }
+    }
 }

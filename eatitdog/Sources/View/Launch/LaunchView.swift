@@ -54,6 +54,7 @@ struct LaunchView: View {
             }
             .zIndex(1)
             .transition(.backslide)
+            .preferredColorScheme(.dark)
             .onAppear {
                 for idx in 0..<3 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + CGFloat(idx)/4, execute: {
