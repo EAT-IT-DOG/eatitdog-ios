@@ -13,11 +13,13 @@ class SearchState: ObservableObject {
     @Published var activated: Bool = false
     @Published var opacity: CGFloat = 1
     @Published var selected: Food?
+    @Published var lastAxis: CGFloat? = nil
     
     @Published var page: Int = 0
     @Published var pagingEnded: Bool = false
     
     func reset() {
+        self.lastAxis = nil
         self.page = 0
         withAnimation(.easeInOut) {
             self.pagingEnded = false

@@ -94,7 +94,7 @@ struct SearchView: View {
                     
                     // MARK: - Food Cards
                     ScrollViewReader { value in
-                        if state.pagingEnded && mainState.selectedFilter != nil && state.data.isEmpty
+                        if state.pagingEnded && state.data.isEmpty
                         {
                             VStack(spacing: 24) {
                                 Text("검색하신 음식이 없습니다")
@@ -126,7 +126,24 @@ struct SearchView: View {
                                     GeometryReader { insideProxy in
                                         EmptyView()
                                             .onChange(of: insideProxy.frame(in: .global).minY) { newValue in
-                                                state.opacity = 1 - (outsideProxy.frame(in: .global).minY - newValue) / 100
+                                                let axis = outsideProxy.frame(in: .global).minY - newValue
+                                                state.opacity = 1 - axis / 100
+                                                if let lastAxis = state.lastAxis {
+                                                    if axis - 700 > lastAxis || axis + 100 < lastAxis {
+                                                        withAnimation(.easeInOut) {
+                                                            state.selected = nil
+                                                            state.lastAxis = nil
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .onChange(of: state.selected) { newValue in
+                                                state.lastAxis = outsideProxy.frame(in: .global).minY - insideProxy.frame(in: .global).minY
+                                                if let toValue = newValue {
+                                                    withAnimation(.easeInOut) {
+                                                        value.scrollTo(toValue.id, anchor: .top)
+                                                    }
+                                                }
                                             }
                                     }
                                     LazyVStack(spacing: 24) {
@@ -142,13 +159,6 @@ struct SearchView: View {
                                             .zIndex(-1)
                                     }
                                     .padding(.top, 58)
-                                }
-                            }
-                            .onChange(of: state.selected) { newValue in
-                                if let toValue = newValue {
-                                    withAnimation(.easeInOut) {
-                                        value.scrollTo(toValue.id, anchor: .top)
-                                    }
                                 }
                             }
                         }
