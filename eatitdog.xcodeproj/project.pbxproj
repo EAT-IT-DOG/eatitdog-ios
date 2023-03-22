@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9300B91029CA785E00F9C108 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9300B90F29CA785E00F9C108 /* InfoView.swift */; };
 		9307499B28E5DD13004555A2 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9307499A28E5DD13004555A2 /* LaunchView.swift */; };
 		930A47BF28E5669700391DA5 /* MotionExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A47BE28E5669700391DA5 /* MotionExt.swift */; };
 		930A47C328E569A600391DA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930A47C228E569A600391DA5 /* HomeView.swift */; };
@@ -38,7 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9300B90F29CA785E00F9C108 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		9307499A28E5DD13004555A2 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		930A47BE28E5669700391DA5 /* MotionExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionExt.swift; sourceTree = "<group>"; };
 		930A47C228E569A600391DA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -81,14 +79,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9300B90E29CA77E000F9C108 /* Info */ = {
-			isa = PBXGroup;
-			children = (
-				9300B90F29CA785E00F9C108 /* InfoView.swift */,
-			);
-			path = Info;
-			sourceTree = "<group>";
-		};
 		930A47C028E5699400391DA5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +135,6 @@
 			children = (
 				93EDA4E629C7DBF000B6FF96 /* Launch */,
 				9370EE0F29C036F3000E47EB /* Main */,
-				9300B90E29CA77E000F9C108 /* Info */,
 				93619D3F28E6632E00CAE586 /* Login */,
 				930A47C428E56A6700391DA5 /* Search */,
 				930A47C128E5699C00391DA5 /* Home */,
@@ -401,7 +390,6 @@
 				93EDA4ED29C7F34900B6FF96 /* FoodType.swift in Sources */,
 				93EDA4B329C32E8800B6FF96 /* FoodModel.swift in Sources */,
 				93F631E629C13C7100CBA643 /* OfferState.swift in Sources */,
-				9300B91029CA785E00F9C108 /* InfoView.swift in Sources */,
 				93619D4128E6633900CAE586 /* LoginView.swift in Sources */,
 				93EDA4B029C3173800B6FF96 /* SearchCellView.swift in Sources */,
 				930A47C628E56A7200391DA5 /* SearchView.swift in Sources */,
