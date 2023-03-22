@@ -21,7 +21,7 @@ struct SearchView: View {
     
     func fetch() {
         state.fetch(mainState.selectedFilter, mainState.searchText) {
-            withAnimation(.easeInOut) {
+            withAnimation(.default) {
                 mainState.failure.toggle()
             }
         }
@@ -74,7 +74,7 @@ struct SearchView: View {
                              state.activated ? (screenWidth - 303) / 2 : screenWidth + 100)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            withAnimation(.easeInOut) {
+                            withAnimation(.default) {
                                 state.activated.toggle()
                             }
                         }
@@ -87,7 +87,7 @@ struct SearchView: View {
                     }
                 }
                 .onChange(of: mainState.selectedFilter) { newValue in
-                    withAnimation(.easeInOut) {
+                    withAnimation(.default) {
                         proxy.scrollTo(newValue, anchor: .center)
                     }
                 }
@@ -105,11 +105,11 @@ struct SearchView: View {
                                     .setFont(20)
                                     .foregroundColor(.basics)
                                 Button(action: {
-                                    withAnimation(.easeInOut) {
+                                    withAnimation(.default) {
                                         mainState.logoutClicked = true
                                     }
 //                                    mainState.transition = .backslide
-//                                    withAnimation(.easeInOut) {
+//                                    withAnimation(.default) {
 //                                        mainState.selectedView = 3
 //                                    }
                                     touch()
@@ -138,7 +138,7 @@ struct SearchView: View {
                                             SearchCellView(selected: $state.selected, data: data)
                                                 .onDisappear {
                                                     if state.selected == data {
-                                                        withAnimation(.easeInOut) {
+                                                        withAnimation(.default) {
                                                             state.selected = nil
                                                         }
                                                     }
@@ -157,7 +157,7 @@ struct SearchView: View {
                             }
                             .onChange(of: state.selected) { newValue in
                                 if let toValue = newValue {
-                                    withAnimation(.easeInOut) {
+                                    withAnimation(.default) {
                                         value.scrollTo(toValue.id, anchor: .top)
                                     }
                                 }
@@ -196,7 +196,7 @@ struct SearchView: View {
         }
         .onDisappear {
             mainState.selectedFilter = nil
-            withAnimation(.easeInOut) {
+            withAnimation(.default) {
                 mainState.searchStatus = false
                 mainState.searchText = ""
             }

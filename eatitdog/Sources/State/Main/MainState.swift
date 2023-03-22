@@ -25,7 +25,7 @@ class MainState: ObservableObject {
     func triggerSearch() {
         if !self.searchText.isEmpty {
             self.transition = .slide
-            withAnimation(.easeInOut) {
+            withAnimation(.default) {
                 if self.searchStatus {
                     self.searchText = ""
                 }

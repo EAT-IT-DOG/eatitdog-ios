@@ -59,7 +59,7 @@ struct MainView: View {
                     switch state.selectedView {
                     case 0: LoginView()
                     case 1: SearchView()
-                    case 2: HomeView()
+                    case 2: HomeView(animation: animation)
                     case 3: OfferView()
                     default: ProfileView()
                     }
@@ -82,7 +82,7 @@ struct MainView: View {
                             Button(action: {
                                 touch()
                                 if [0, 3, 4].contains(idx) {
-                                    withAnimation(.easeInOut) {
+                                    withAnimation(.default) {
                                         state.logoutClicked.toggle()
                                     }
                                 } else {
@@ -117,7 +117,7 @@ struct MainView: View {
             .alertSheet("현재는 지원하지 않는 기능입니다", "확인",
                         isPresented: $state.logoutClicked,
                         action: {
-                withAnimation(.easeInOut) {
+                withAnimation(.default) {
                     state.logoutClicked = false
                 }
             }, cancelButton: false)

@@ -19,7 +19,7 @@ class SearchState: ObservableObject {
 
     func reset() {
         self.page = 0
-        withAnimation(.easeInOut) {
+        withAnimation(.default) {
             self.pagingEnded = false
             self.selected = nil
             self.data = []
@@ -39,13 +39,13 @@ class SearchState: ObservableObject {
                              [Food].self, failure: failure)
             { data in
                 if data.isEmpty {
-                    withAnimation(.easeInOut) {
+                    withAnimation(.default) {
                         self.pagingEnded = true
                     }
                 } else {
                     self.page += 1
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        withAnimation(.easeInOut) {
+                        withAnimation(.default) {
                             self.data += data
                         }
                     }

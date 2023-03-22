@@ -12,7 +12,8 @@ struct HomeView: View {
     
     /// State
     @EnvironmentObject private var mainState: MainState
-
+    let animation: Namespace.ID
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             
@@ -20,7 +21,7 @@ struct HomeView: View {
                 
                 // MARK: - Banner
                 Button(action: {
-                    withAnimation(.easeInOut) {
+                    withAnimation(.default) {
                         mainState.infoView.toggle()
                     }
                 }) {
@@ -30,16 +31,20 @@ struct HomeView: View {
                             .multilineTextAlignment(.center)
                             .padding(.top, 30)
                             .setFont(18, .medium)
+                            .matchedGeometryEffect(id: "1txt", in: animation)
                         Image("Girl")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 100)
                             .padding(.bottom, 4)
+                            .matchedGeometryEffect(id: "1img", in: animation)
                     }
                     .frame(width: 303)
                     .background(LinearGradient(
                         gradient: Gradient(colors: [Color.accentColor, Color.yellow]),
-                        startPoint: .top, endPoint: .bottom))
+                        startPoint: .top, endPoint: .bottom)
+                        .matchedGeometryEffect(id: "1bg", in: animation)
+                    )
                     .cornerRadius(15)
                 }
                 .buttonStyle(ScaleButtonStyle())
@@ -56,11 +61,11 @@ struct HomeView: View {
                                 Button(action: {
                                     mainState.transition = .slide
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                        withAnimation(.easeInOut) {
+                                        withAnimation(.default) {
                                             mainState.selectedFilter = row
                                         }
                                     }
-                                    withAnimation(.easeInOut) {
+                                    withAnimation(.default) {
                                         mainState.selectedView = 1
                                     }
                                     touch()
@@ -90,11 +95,5 @@ struct HomeView: View {
             .padding(.bottom, 28)
         }
         .customBackground()
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
     }
 }

@@ -16,6 +16,12 @@ extension AnyTransition {
     }
 }
 
+extension Animation {
+    static var `default`: Animation {
+        .spring(dampingFraction: 0.75, blendDuration: 0.5)
+    }
+}
+
 // MARK: - Button Style
 struct ScaleButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {

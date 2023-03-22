@@ -65,7 +65,7 @@ struct SearchCellView: View {
                         TextContainer("증상", symptom)
                     }
                     Button(action: {
-                        withAnimation(.easeInOut) {
+                        withAnimation(.default) {
                             selected = nil
                             touch()
                         }
@@ -87,7 +87,7 @@ struct SearchCellView: View {
                 .transition(.opacity)
             } else {
                 Button(action: {
-                    withAnimation(.easeInOut) {
+                    withAnimation(.default) {
                         selected = data
                         touch()
                     }

@@ -45,7 +45,7 @@ struct AlertSheet<Content: View>: View {
                     HStack(spacing: 18) {
                         if cancelButton {
                             Button(action: {
-                                withAnimation(.easeInOut) {
+                                withAnimation(.default) {
                                     isPresented = false
                                 }
                             }) {
