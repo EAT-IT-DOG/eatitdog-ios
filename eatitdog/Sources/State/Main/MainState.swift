@@ -28,8 +28,10 @@ class MainState: ObservableObject {
                 if self.searchStatus {
                     self.searchText = ""
                 }
-                self.selectedView = 1
                 self.searchStatus.toggle()
+            }
+            withAnimation(.easeInOut) {
+                self.selectedView = 1
             }
             self.searchTrigger = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {

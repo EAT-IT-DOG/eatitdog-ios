@@ -55,7 +55,7 @@ struct HomeView: View {
                                             mainState.selectedFilter = row
                                         }
                                     }
-                                    withAnimation(.default) {
+                                    withAnimation(.easeInOut) {
                                         mainState.selectedView = 1
                                     }
                                     touch()
