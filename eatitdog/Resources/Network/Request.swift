@@ -9,19 +9,11 @@ import SwiftUI
 import Alamofire
 
 class Requests {
-    static func failure() {
-        if NetworkReachabilityManager()!.isReachable {
-        } else {
-            UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                exit(0)
-            }
-        }
-    }
     
     static func simple(_ uri: String,
                        _ method: HTTPMethod,
                        params: [String: Any]? = nil,
+                       failure: @escaping () -> Void,
                        completion: @escaping () -> Void) {
         AF.request("\(API)\(uri)",
                    method: method,
@@ -37,7 +29,7 @@ class Requests {
             case .success:
                 completion()
             case .failure:
-                self.failure()
+                failure()
             }
         }
     }
@@ -46,6 +38,7 @@ class Requests {
                                     _ method: HTTPMethod,
                                     params: [String: Any]? = nil,
                                     _ model: T.Type,
+                                    failure: @escaping () -> Void,
                                     completion: @escaping (T) -> Void) {
         AF.request("\(API)\(uri)",
                    method: method,
@@ -72,7 +65,7 @@ class Requests {
                     }
                 }
             case .failure:
-                self.failure()
+                failure()
             }
         }
     }

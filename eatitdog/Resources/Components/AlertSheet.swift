@@ -82,7 +82,7 @@ struct AlertSheet<Content: View>: View {
                 .padding(24)
                 .background(Color.white)
                 .cornerRadius(15)
-                .transition(.scale.combined(with: .opacity))
+                .transition(.move(edge: .bottom).combined(with: .opacity))
                 .zIndex(1)
             }
         }

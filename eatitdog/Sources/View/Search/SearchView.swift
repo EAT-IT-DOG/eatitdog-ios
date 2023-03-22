@@ -20,7 +20,11 @@ struct SearchView: View {
     }
     
     func fetch() {
-        state.fetch(mainState.selectedFilter, mainState.searchText)
+        state.fetch(mainState.selectedFilter, mainState.searchText) {
+            withAnimation(.easeInOut) {
+                mainState.failure.toggle()
+            }
+        }
     }
 
     var body: some View {
@@ -60,7 +64,7 @@ struct SearchView: View {
                                         RoundedRectangle(cornerRadius: 15)
                                             .strokeBorder(row.toColor, lineWidth: 1)
                                     )
-                                    .roundedCorner(15)
+                                    .cornerRadius(15)
                             }
                             .buttonStyle(ScaleButtonStyle())
                             .id(row)

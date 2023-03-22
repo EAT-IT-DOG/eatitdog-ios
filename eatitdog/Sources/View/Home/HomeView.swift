@@ -19,23 +19,30 @@ struct HomeView: View {
             VStack(spacing: 26) {
                 
                 // MARK: - Banner
-                VStack(spacing: 0) {
-                    Text("강아지가 먹어도 되는\n음식인지 검색해 보세요!")
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.top, 30)
-                        .setFont(18, .medium)
-                    Image("Girl")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100)
-                        .padding(.bottom, 4)
+                Button(action: {
+                    withAnimation(.easeInOut) {
+                        mainState.infoView.toggle()
+                    }
+                }) {
+                    VStack(spacing: 0) {
+                        Text("강아지가 먹어도 되는\n음식인지 검색해 보세요!")
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .padding(.top, 30)
+                            .setFont(18, .medium)
+                        Image("Girl")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100)
+                            .padding(.bottom, 4)
+                    }
+                    .frame(width: 303)
+                    .background(LinearGradient(
+                        gradient: Gradient(colors: [Color.accentColor, Color.yellow]),
+                        startPoint: .top, endPoint: .bottom))
+                    .cornerRadius(15)
                 }
-                .frame(width: 303)
-                .background(LinearGradient(
-                    gradient: Gradient(colors: [Color.accentColor, Color.yellow]),
-                    startPoint: .top, endPoint: .bottom))
-                .roundedCorner(15)
+                .buttonStyle(ScaleButtonStyle())
                 
                 // MARK: - Category Plate
                 VStack(spacing: 0) {
@@ -77,7 +84,7 @@ struct HomeView: View {
                     }
                 }
                 .background(Color.white)
-                .roundedCorner(15)
+                .cornerRadius(15)
                 .frame(maxWidth: .infinity)
             }
             .padding(.bottom, 28)

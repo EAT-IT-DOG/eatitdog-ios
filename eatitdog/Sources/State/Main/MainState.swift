@@ -12,6 +12,9 @@ class MainState: ObservableObject {
     @Published var selectedView: Int = 2
     @Published var transition: AnyTransition = .slide
     
+    @Published var infoView: Bool = false
+    @Published var failure: Bool = false
+    
     @Published var searchTrigger: Bool = false
     @Published var searchStatus: Bool = false
     @Published var searchText: String = ""

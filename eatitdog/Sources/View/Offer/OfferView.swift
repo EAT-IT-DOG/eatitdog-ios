@@ -73,7 +73,7 @@ struct OfferView: View {
             .padding(24)
             .frame(width: 303)
             .background(Color.white)
-            .roundedCorner(15)
+            .cornerRadius(15)
         }
         .customBackground()
     }

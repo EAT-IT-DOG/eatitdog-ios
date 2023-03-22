@@ -26,7 +26,7 @@ class SearchState: ObservableObject {
         }
     }
     
-    func fetch(_ filter: FoodType?, _ keyword: String) {
+    func fetch(_ filter: FoodType?, _ keyword: String, _ failure: @escaping () -> Void) {
         if !pagingEnded {
             
             var params: [String: Any] = ["page": page, "size": 10]
@@ -36,7 +36,7 @@ class SearchState: ObservableObject {
             
             Requests.request("food\(params.count != 2 ? "/search" : "")", .get,
                              params: params,
-                             [Food].self)
+                             [Food].self, failure: failure)
             { data in
                 if data.isEmpty {
                     withAnimation(.easeInOut) {

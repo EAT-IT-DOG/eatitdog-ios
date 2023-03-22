@@ -37,11 +37,6 @@ extension View {
         else { self }
     }
     
-    @ViewBuilder func roundedCorner(_ radius: CGFloat) -> some View {
-        self
-            .clipShape(RoundedRectangle(cornerRadius: radius))
-    }
-    
     @ViewBuilder func customBackground() -> some View {
         ZStack {
             Color.background.ignoresSafeArea()
