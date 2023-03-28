@@ -25,6 +25,7 @@ fileprivate struct TextContainer: View {
             Text(text)
                 .setFont(16)
                 .foregroundColor(.body)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }
@@ -81,10 +82,8 @@ struct SearchCellView: View {
                 }
                 .padding(24)
                 .frame(width: 303)
-                .background(Color.white
-                    .matchedGeometryEffect(id: "c\(data.id)", in: animation))
+                .background(Color.white)
                 .cornerRadius(15)
-                .transition(.opacity)
             } else {
                 Button(action: {
                     withAnimation(.default) {
@@ -101,14 +100,14 @@ struct SearchCellView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(.white)
                     .frame(width: 303, height: 150)
-                    .background(data.safeness.toColor
-                        .matchedGeometryEffect(id: "c\(data.id)", in: animation))
+                    .background(data.safeness.toColor)
                     .cornerRadius(15)
-                    .transition(.opacity)
                 }
                 .buttonStyle(ScaleButtonStyle())
             }
         }
         .id(data.id)
+        .matchedGeometryEffect(id: "\(data.id)", in: animation)
+        .transition(.move(edge: .bottom).combined(with: .opacity))
     }
 }

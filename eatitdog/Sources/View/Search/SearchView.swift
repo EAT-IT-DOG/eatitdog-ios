@@ -135,22 +135,19 @@ struct SearchView: View {
                                     }
                                     LazyVStack(spacing: 24) {
                                         ForEach(Array(state.data.enumerated()), id: \.offset) { idx, data in
-                                            VStack(spacing: 0) {
-                                                SearchCellView(selected: $state.selected, data: data)
-                                                if state.page != 0 && idx == state.data.count - 2 {
-                                                    Color.background.frame(height: 0.00001)
-                                                        .onAppear(perform: fetch)
-                                                        .zIndex(-1)
-                                                }
-                                            }
-                                            .transition(.move(edge: .bottom).combined(with: .opacity))
-                                            .onDisappear {
-                                                if state.selected == data {
-                                                    withAnimation(.default) {
-                                                        state.selected = nil
+                                            SearchCellView(selected: $state.selected, data: data)
+                                                .onAppear {
+                                                    if state.page != 0 && idx == state.data.count - 2 {
+                                                        fetch()
                                                     }
                                                 }
-                                            }
+                                                .onDisappear {
+                                                    if state.selected == data {
+                                                        withAnimation(.default) {
+                                                            state.selected = nil
+                                                        }
+                                                    }
+                                                }
                                         }
                                     }
                                     .padding(.top, 58)

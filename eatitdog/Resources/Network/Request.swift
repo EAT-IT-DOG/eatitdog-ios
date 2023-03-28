@@ -57,11 +57,14 @@ class Requests {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
                     //let decodedData = try! decoder.decode(T.self, from: data)
                     if let decodedData = try? decoder.decode(T.self, from: data) {
                         DispatchQueue.main.async {
                             completion(decodedData)
                         }
+                    } else {
+                        failure()
                     }
                 }
             case .failure:
