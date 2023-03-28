@@ -110,6 +110,5 @@ struct SearchCellView: View {
             }
         }
         .id(data.id)
-        .transition(.move(edge: .bottom).combined(with: .opacity))
     }
 }

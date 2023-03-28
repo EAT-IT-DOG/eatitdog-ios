@@ -39,8 +39,10 @@ class SearchState: ObservableObject {
                              [Food].self, failure: failure)
             { data in
                 if data.isEmpty {
-                    withAnimation(.default) {
-                        self.pagingEnded = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        withAnimation(.default) {
+                            self.pagingEnded = true
+                        }
                     }
                 } else {
                     self.page += 1

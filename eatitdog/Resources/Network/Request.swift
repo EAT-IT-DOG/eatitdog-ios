@@ -57,7 +57,7 @@ class Requests {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                    let decodedData = try! decoder.decode(T.self, from: data)
+                    //let decodedData = try! decoder.decode(T.self, from: data)
                     if let decodedData = try? decoder.decode(T.self, from: data) {
                         DispatchQueue.main.async {
                             completion(decodedData)
